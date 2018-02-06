@@ -1,18 +1,21 @@
-﻿@{
+﻿@model  STO.WebUI.Models.AddCar
+
+@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label" for="">Тип Автомобиля</label>
-        <div class="controls">
-            @*<input type="text" id="inputEmail" placeholder="Email">*@
-            @Html.DropDownList("TypeCars", @ViewBag.ListType as SelectList)
+@using (Html.BeginForm("AddData", "Home", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="">Тип Автомобиля</label>
+            <div class="controls">
+                @*<input type="text" id="inputEmail" placeholder="Email">*@
+                @Html.DropDownList("TypeCars", @ViewBag.ListType as SelectList)
+            </div>
         </div>
-    </div>
-    
-</div>
 
+    </div>
+}
 
 @section scripts{
     @Scripts.Render("~/scripts/Custom/TypeCar.js")

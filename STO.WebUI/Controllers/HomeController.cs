@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using STO.Domain.Concrete;
 using STO.Domain.Entities;
+using STO.WebUI.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -54,6 +55,13 @@ namespace STO.WebUI.Controllers
             var tt = new JavaScriptSerializer().Serialize(joinTables);
             //string json = JsonConvert.SerializeObject(joinTables, Formatting.Indented);
             return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public string AddData(AddCar addCar)
+        {
+
+            return "Спасибо"; ;
         }
 
         protected override void Dispose(bool disposing)

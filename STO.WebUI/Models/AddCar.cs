@@ -10,5 +10,15 @@ namespace STO.WebUI.Models
     {
         public TypeCar TypeCar { get; set; }
         public List<Service> Services { get; set; }
+
+        public AddCar(TypeCar typeCar, List<Service> services)
+        {
+            TypeCar = typeCar;
+            Services = services;
+        }
+
+        public AddCar()
+        {
+        }
     }
 }

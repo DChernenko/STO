@@ -3,7 +3,6 @@
 }
 
 <div class="form-horizontal">
-
     <div class="control-group">
         <label class="control-label" for="">Тип Автомобиля</label>
         <div class="controls">
@@ -11,50 +10,11 @@
             @Html.DropDownList("TypeCars", @ViewBag.ListType as SelectList)
         </div>
     </div>
-
-
-
-
-
+    
 </div>
-
-
 
 
 @section scripts{
     @Scripts.Render("~/scripts/Custom/TypeCar.js")
-
-    @*<script>
-                $(function () {
-            console.log("ready!");
-
-
-            console.log($("#TypeCars option:selected").text());
-
-            //$("#TypeCars").;
-            //GetTypeCar();
-            $('#TypeCars').change(function () {
-                GetTypeCar();
-            });
-
-        });
-
-
-        function GetTypeCar() {
-            $.ajax({
-                url: @Url.RouteUrl(new { controller = "Home", action = "GetServices", id =$("#TypeCars option:selected").val() }),
-                type: 'GET',
-                dataType: "text",
-                    accepts: {
-                text: "application/x-books"
-            },
-            success: function (data) {
-                console.log(data);
-                //WriteResponse(data);
-            }
-        });
-        };
-
-        </script>*@
 }
 

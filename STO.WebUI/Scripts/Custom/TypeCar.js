@@ -22,43 +22,38 @@ function GetTypeCar() {
         //    text: "application/x-books"
         //},
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             WriteResponse(data);
         }
     });
     //url: @Url.RouteUrl(new { controller = "Home", action = "GetServices", id =$("#TypeCars option:selected").val() }),
 };
+function ClearStaticField() {
+    $(".form-horizontal").children().not(".control-group:first, #submitId:last").remove();
+};
+
 function WriteResponse(data) {
     if (data) {
+        ClearStaticField();
         var form = $(".form-horizontal");
-        jsonDatas = JSON.parse(data);
-
-
+        var jsonDatas = JSON.parse(data);
         for (var i = 0; i < jsonDatas.length; i++) {
             var divControlGroup = $("<div/>").addClass('control-group');
             var lable = $("<lable/>").addClass('control-lable').text(jsonDatas[i].Service.Name);
             var divControls = $("<div/>").addClass('controls');
-            var input =
-                jsonDatas[i].Service.IsAddservices ?
-                    $('<input/>').attr({ type: 'checkbox', name: 'chk' }):
-            $('<input/>').attr({ type: 'text', name: 'text', value: 'text' });
-
-            //if (!jsonDatas[i].Service.IsAddservices) {
-            //    input= $('<input/>').attr({ type: 'text', name: 'text', value: 'text' });
-            //}
-            //else {
-            //    input= $('<input/>').attr({ type: 'checkbox', name: 'chk' });
-            //}
-
-
+            var input
+                =
+                jsonDatas[i].Service.IsAddService ?
+                    $('<input/>').attr({ type: 'checkbox', name: 'chk' + i }) :
+                    $('<input/>').attr({ type: 'text', name: 'text' });           
+            divControls.append(input);
             divControlGroup.append(lable);
+            divControlGroup.append(divControls);
             form.append(divControlGroup);
         }
-
-
-
-        var lable
-
+        var button = $('<button/>')
+            .attr({ type: 'submit', value: 'Добавить' })
+            .addClass("btn btn-lg btn-primary");
+        form.append(button);
     }
-
 };

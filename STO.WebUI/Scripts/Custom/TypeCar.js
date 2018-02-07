@@ -1,11 +1,11 @@
 ﻿$(function () {
 
     console.log("ready!");
-    console.log($("#TypeCars option:selected").text());
+    console.log($("#TypeCar option:selected").text());
 
     //$("#TypeCars").;
     //GetTypeCar();
-    $('#TypeCars').change(function () {
+    $('#TypeCar').change(function () {
         GetTypeCar()
     });
 
@@ -14,7 +14,7 @@
 
 function GetTypeCar() {
     $.ajax({
-        url: '/Home/GetServices/' + $("#TypeCars option:selected").val(),
+        url: '/Home/GetServices/' + $("#TypeCar option:selected").val(),
         type: 'GET',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -29,7 +29,7 @@ function GetTypeCar() {
     //url: @Url.RouteUrl(new { controller = "Home", action = "GetServices", id =$("#TypeCars option:selected").val() }),
 };
 function ClearStaticField() {
-    $(".form-horizontal").children().not(".control-group:first, #submitId:last").remove();
+    $(".form-horizontal").children().not(".control-group:first").remove();
 };
 
 function WriteResponse(data) {
@@ -44,8 +44,8 @@ function WriteResponse(data) {
             var input
                 =
                 jsonDatas[i].Service.IsAddService ?
-                    $('<input/>').attr({ type: 'checkbox', name: 'chk' + i }) :
-                    $('<input/>').attr({ type: 'text', name: 'text' });           
+                    $('<input/>').attr({ type: 'checkbox', name: 'Services' }) :
+                    $('<input/>').attr({ type: 'text', name: 'Services' });           
             divControls.append(input);
             divControlGroup.append(lable);
             divControlGroup.append(divControls);
@@ -53,7 +53,7 @@ function WriteResponse(data) {
         }
         var button = $('<button/>')
             .attr({ type: 'submit', value: 'Добавить' })
-            .addClass("btn btn-lg btn-primary");
+            .addClass("btn btn-lg btn-primary").text("Добавить");
         form.append(button);
     }
 };

@@ -32,28 +32,16 @@ namespace STO.WebUI.Controllers
         public JsonResult GetServices(int? id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            if (id == null)
-            {
-
-            }
-            //працює
-            List<TypeService> services = db.TypeServices.Include(p => p.Service).Where(s => s.TypeCarId == id).ToList();
-
-            var joinTables = db.TypeServices.Join(db.Services, t => t.ServiceId, s => s.Id,
-                (t, s) => new { Id = s.Id, Name = s.Name, IsAddService = s.IsAddService, TypeCar = t.TypeCarId, IsActive = s.IsActive }).Where(t => t.TypeCar.Value == id).ToList();
-
-
+            List<TypeService> services = db.TypeServices
+                .Include(p => p.Service)
+                .Where(s => s.TypeCarId == id && s.Service.IsActive)
+                .ToList();                        
             JsonSerializerSettings settings = new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 Formatting = Formatting.Indented
             };
-
-            string json = JsonConvert.SerializeObject(services, settings);
-
-            //List<TypeService> services2 = db.Services.Include(p => p.TypeServices).Where(s => s.== id).ToList();            
-            var tt = new JavaScriptSerializer().Serialize(joinTables);
-            //string json = JsonConvert.SerializeObject(joinTables, Formatting.Indented);
+            string json = JsonConvert.SerializeObject(services, settings);           
             return Json(json, JsonRequestBehavior.AllowGet);
         }
 

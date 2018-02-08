@@ -1,10 +1,4 @@
 ﻿$(function () {
-
-    console.log("ready!");
-    console.log($("#TypeCar option:selected").text());
-
-    //$("#TypeCars").;
-    //GetTypeCar();
     $('#TypeCar').change(function () {
         GetTypeCar()
     });
@@ -18,18 +12,15 @@ function GetTypeCar() {
         type: 'GET',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
-        //accepts: {
-        //    text: "application/x-books"
-        //},
         success: function (data) {
             //console.log(data);
             WriteResponse(data);
         }
     });
-    //url: @Url.RouteUrl(new { controller = "Home", action = "GetServices", id =$("#TypeCars option:selected").val() }),
+    
 };
 function ClearStaticField() {
-    $(".form-horizontal").children().not(".control-group:first").remove();
+    $(".form-horizontal").children().not("div[class='form-group row']:first").remove();
 };
 
 function WriteResponse(data) {
@@ -38,14 +29,14 @@ function WriteResponse(data) {
         var form = $(".form-horizontal");
         var jsonDatas = JSON.parse(data);
         for (var i = 0; i < jsonDatas.length; i++) {
-            var divControlGroup = $("<div/>").addClass('control-group');
-            var lable = $("<lable/>").addClass('control-lable').text(jsonDatas[i].Service.Name);
-            var divControls = $("<div/>").addClass('controls');
-            var input
-                =
+            var divControlGroup = $("<div/>").addClass('form-group row');
+            var lable = $("<lable/>").addClass('col-sm-2 col-form-label').text(jsonDatas[i].Service.Name);
+            var divControls = $("<div/>").addClass('col-3');
+            var input =
                 jsonDatas[i].Service.IsAddService ?
-                    $('<input/>').attr({ type: 'checkbox', name: 'Services' }) :
-                    $('<input/>').attr({ type: 'text', name: 'Services' });           
+                    $('<input/>').attr({ type: 'checkbox', name: 'Services' }):
+                    $('<input/>').attr({ type: 'text', name: 'Services' }).addClass("form-control text-right");
+
             divControls.append(input);
             divControlGroup.append(lable);
             divControlGroup.append(divControls);

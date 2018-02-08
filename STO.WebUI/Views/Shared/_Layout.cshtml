@@ -7,15 +7,19 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    
-    <div class="container body-content">
-        @RenderBody()
-
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+<body>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                One of 2 columns
+            </div>
+            <div class="col-sm-8">
+                @RenderBody()
+            </div>
+            <div class="col-sm-2">
+                One of 2 columns
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -19,11 +19,15 @@ namespace STO.Domain.Entities
         //public ICollection<Car> Cars { get; set; }
 
 
-        public  int? CarId { get; set; }
+        public int? CarId { get; set; }
         public Car Car { get; set; }
 
         public int? TypeServiceId { get; set; }
         public TypeService TypeService { get; set; }
+
+        public int? TotalPriceId { get; set; }
+        public TotalPrice TotalPrice { get; set; }
+
 
         public CalculateCost()
         {

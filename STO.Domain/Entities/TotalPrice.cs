@@ -22,10 +22,12 @@ namespace STO.Domain.Entities
         public int? CarId { get; set; }
         public Car Car { get; set; }
 
+        public List<CalculateCost> CalculateCost { get; set; }
+
         public TotalPrice()
         {
             //Cars = new List<Car>();
-
+            CalculateCost = new List<CalculateCost>();
 
         }
 

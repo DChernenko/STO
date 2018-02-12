@@ -152,7 +152,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\TypeCarController.cs" />
+=======
+    <Compile Include="Controllers\NavigationController.cs" />
+>>>>>>> 5eefec674eff5ca217286bbe5bbaaf9ba954f01b
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,7 +245,11 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Car\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\TypeCar\Create.cshtml" />
+=======
+    <Content Include="Views\Navigation\PViewTotalPrice.cshtml" />
+>>>>>>> 5eefec674eff5ca217286bbe5bbaaf9ba954f01b
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

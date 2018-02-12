@@ -16,9 +16,6 @@ namespace STO.Domain.Entities
         public int Id { get; set; }
         public int State { get; set; }
 
-        //public ICollection<Car> Cars { get; set; }
-
-
         public int? CarId { get; set; }
         public Car Car { get; set; }
 
@@ -30,8 +27,6 @@ namespace STO.Domain.Entities
 
 
         public CalculateCost()
-        {
-            //Cars = new List<Car>();            
-        }
+        { }
     }
 }

@@ -154,10 +154,13 @@
     <Compile Include="Controllers\HomeController.cs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Controllers\TypeCarController.cs" />
 =======
     <Compile Include="Controllers\NavigationController.cs" />
 >>>>>>> 5eefec674eff5ca217286bbe5bbaaf9ba954f01b
+=======
+>>>>>>> parent of 8a959bb... some
 =======
 >>>>>>> parent of 8a959bb... some
     <Compile Include="Global.asax.cs">
@@ -250,10 +253,13 @@
     <Content Include="Views\Car\Index.cshtml" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\TypeCar\Create.cshtml" />
 =======
     <Content Include="Views\Navigation\PViewTotalPrice.cshtml" />
 >>>>>>> 5eefec674eff5ca217286bbe5bbaaf9ba954f01b
+=======
+>>>>>>> parent of 8a959bb... some
 =======
 >>>>>>> parent of 8a959bb... some
   </ItemGroup>

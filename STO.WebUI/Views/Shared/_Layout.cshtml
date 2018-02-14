@@ -8,15 +8,17 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2">
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-2 col-md-2">
                 One of 2 columns
             </div>
-            <div class="col-sm-8">
+            <div class="col-7 col-md-7">
                 @RenderBody()
             </div>
-            <div class="col-sm-2">
+            <div class="col-3 col-md-3 sidebar-offcanvas">
+                Последниие 5-ть записей:
+                <br />
                 @{Html.RenderAction("PViewTotalPrice", "Navigation"); }
                 @*@{Html.Action("PViewTotalPrice", "Navigation"); }*@
             </div>

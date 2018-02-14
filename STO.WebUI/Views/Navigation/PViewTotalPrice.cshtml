@@ -1,18 +1,16 @@
 ﻿@model  IEnumerable<STO.Domain.Entities.TotalPrice>
+<div class="list-group">
 
-<nav class="nav-sidebar">
-    <ul class="nav tabs">
-        @foreach (var item in Model)
+    @foreach (var item in Model)
+    {
+
+        @Html.RouteLink(@item.Car.Number.ToString(), new
         {
-            <li >
-                @*@Html.ActionLink(@item.Car.Number, "Details", "Navigation", new { id = @item.Id }, null);*@
-                @Html.RouteLink(@item.Car.Number.ToString(), new
-           {
-               controller = "Navigation",
-               action = "Details",
-               id = @item.Id
-           }, new { data_toggle = "tab" })
-            </li>
-        }
-    </ul>
-</nav>
+            controller = "Navigation",
+            action = "Details",
+            id = @item.Id
+        }, new { @class = "list-group-item" })
+
+    }
+
+</div>

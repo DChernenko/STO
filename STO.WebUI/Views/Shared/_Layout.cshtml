@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>  
+<body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
@@ -17,7 +17,9 @@
                 @RenderBody()
             </div>
             <div class="col-sm-2">
-                One of 2 columns
+                @{Html.RenderAction("PViewTotalPrice", "Navigation"); }
+                @*@{Html.Action("PViewTotalPrice", "Navigation"); }*@
+                Action
             </div>
         </div>
     </div>

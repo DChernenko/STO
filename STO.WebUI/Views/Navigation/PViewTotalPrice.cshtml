@@ -1,5 +1,14 @@
 ﻿@model  IEnumerable<STO.Domain.Entities.TotalPrice>
+
 @foreach (var item in Model)
 {
-    @Html.ActionLink(@item.Car.Number, "Details", "Navigation", new { id = @item.Id }, null);
+    @*@Html.ActionLink(@item.Car.Number, "Details", "Navigation", new { id = @item.Id }, null);*@
+    @Html.RouteLink(@item.Car.Number.ToString(), new
+{
+    controller = "Navigation",
+    action = "Details",
+    id = 10
+}, null)
+
+    <br>
 }

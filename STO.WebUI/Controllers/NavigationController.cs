@@ -20,14 +20,15 @@ namespace STO.WebUI.Controllers
             return View();
         }
 
-
-        public ActionResult GetTotalPrices()
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult PViewTotalPrice()
         {
             List<TotalPrice> totalPrices = db.TotalPrices
                 .Include(c => c.Car).Take(5).ToList();
-            return PartialView(totalPrices);
+            return PartialView("PViewTotalPrice", totalPrices);
         }
-
+        [HttpGet]
         public ActionResult Details(int id)
         {
 

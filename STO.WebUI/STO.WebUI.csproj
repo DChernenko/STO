@@ -242,6 +242,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Navigation\PViewTotalPrice.cshtml" />
+    <Content Include="Views\Navigation\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

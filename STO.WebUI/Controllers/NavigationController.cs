@@ -2,9 +2,11 @@
 using STO.Domain.Concrete;
 using STO.Domain.Entities;
 using STO.WebUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -24,6 +26,7 @@ namespace STO.WebUI.Controllers
         [ChildActionOnly]
         public ActionResult PViewTotalPrice()
         {
+            object o = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
             List<TotalPrice> totalPrices = db.TotalPrices
                 .Include(c => c.Car).Take(5).ToList();
             return PartialView("PViewTotalPrice", totalPrices);

@@ -16,30 +16,22 @@ namespace STO.WebUI.Controllers
     public class NavigationController : Controller
     {
         EFDbContext db = new EFDbContext("EFDbContext");
-        // GET: Navigation
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         [ChildActionOnly]
         public ActionResult PViewTotalPrice()
         {
-            object o = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
             List<TotalPrice> totalPrices = db.TotalPrices
-                .Include(c => c.Car).Take(5).ToList();
+                .Include(c => c.Car).Take(Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"])).ToList();
             return PartialView("PViewTotalPrice", totalPrices);
         }
         [HttpGet]
         public ActionResult Details(int id)
         {
-
             TotalPrice totalPrice = db.TotalPrices
                 .Include(c => c.Car)
                 .Include(l => l.CalculateCost)
-                .Where(p => p.Id == id)
-                .FirstOrDefault();
+                .FirstOrDefault(p => p.Id == id);
             return View(totalPrice);
         }
     }

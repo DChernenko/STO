@@ -12,28 +12,33 @@
     <div class="col-6 col-md-4">
         Номер автомобиля:
     </div>
-    <div class="col-6 col-md-4">@Model.Car.Number</div>
+    <div class="col-6 col-md-4 ml-3">@Model.Car.Number</div>
 </div>
-
+<div class="row">
+    <div class="col-6 col-md-4">
+        Тип автомобиля:
+    </div>
+    <div class="col-6 col-md-4 ml-3">@Model.Car.TypeCar.Name</div>
+</div>
 <div class="row">
     <div class="col-6 col-md-4">
         Дата:
     </div>
-    <div class="col-6 col-md-4">@Model.Date</div>
+    <div class="col-6 col-md-4 ml-3">@Model.Date</div>
 </div>
 
 <div class="row">
     <div class="col-6 col-md-4">
         Общая стоймось:
     </div>
-    <div class="col-6 col-md-4">@Model.Total</div>
+    <div class="col-6 col-md-4 ml-3">@Model.Total</div>
 </div>
 
 <div class="row">
     <div class="col-6 col-md-4">
         Состояние автомобиля:
     </div>
-    <div class="col-6 col-md-4">@Model.AvgState</div>
+    <div class="col-6 col-md-4 ml-3">@Model.AvgState</div>
 </div>
 
 <div class="row">
@@ -47,37 +52,31 @@
         if (!item.TypeService.Service.IsAddService)
         {
             <div class="row">
-                <div class="col-6 col-md-4">
+                <div class="col-6 col-md-4 ml-3">
                     @item.TypeService.Service.Name
                 </div>
-                <div class="col-6 col-md-4">@item.State</div>
+                <div class="col-6 col-md-4 mr-3">@item.State</div>
             </div>
         }
         else
         {
             if (i == 0)
-            {<div class="row">
-                <div class="col-6 col-md-4">
-                    Дополнительные услуги:
+            {
+                i++;
+                <div class="row">
+                    <div class="col-6 col-md-4">
+                        Дополнительные услуги:
+                    </div>
                 </div>
-            </div> }
-            <div class="row">
-                <div class="col-6 col-md-4">
+            }
+            <div class="row ">
+                <div class="col-6 col-md-4 ml-3">
                     @item.TypeService.Service.Name
                 </div>
-                <div class="col-6 col-md-4">@item.TypeService.Service.Cost</div>
+                <div class="col-6 col-md-4 mr-3">@item.TypeService.Service.Cost</div>
             </div>
-
         }
     }
-
-
-    if (ViewBag.IsContainAddService) { }
-    else
-    {
-
-    }
-
 }
 
 

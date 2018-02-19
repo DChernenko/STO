@@ -16,7 +16,7 @@ namespace STO.Domain.Entities
         public int Id { get; set; }
         public decimal Total { get; set; }
         public DateTime Date { get; set; }
-
+        public double AvgState { get; set; }
         //public ICollection<Car> Cars { get; set; }
 
         public int? CarId { get; set; }

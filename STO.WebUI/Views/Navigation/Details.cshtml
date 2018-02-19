@@ -1,8 +1,10 @@
 ﻿@model  STO.Domain.Entities.TotalPrice
 
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
 }
 
 <h2>Details</h2>
@@ -26,6 +28,57 @@
     </div>
     <div class="col-6 col-md-4">@Model.Total</div>
 </div>
+
+<div class="row">
+    <div class="col-6 col-md-4">
+        Состояние автомобиля:
+    </div>
+    <div class="col-6 col-md-4">@Model.AvgState</div>
+</div>
+
+<div class="row">
+    <div class="col-6 col-md-4">
+        Услуги:
+    </div>
+</div>
+@{
+    foreach (STO.Domain.Entities.CalculateCost item in @Model.CalculateCost)
+    {
+        if (!item.TypeService.Service.IsAddService)
+        {
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    @item.TypeService.Service.Name
+                </div>
+                <div class="col-6 col-md-4">@item.State</div>
+            </div>
+        }
+        else
+        {
+            if (i == 0)
+            {<div class="row">
+                <div class="col-6 col-md-4">
+                    Дополнительные услуги:
+                </div>
+            </div> }
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    @item.TypeService.Service.Name
+                </div>
+                <div class="col-6 col-md-4">@item.TypeService.Service.Cost</div>
+            </div>
+
+        }
+    }
+
+
+    if (ViewBag.IsContainAddService) { }
+    else
+    {
+
+    }
+
+}
 
 
 

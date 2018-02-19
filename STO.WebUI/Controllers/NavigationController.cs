@@ -30,8 +30,11 @@ namespace STO.WebUI.Controllers
         {
             TotalPrice totalPrice = db.TotalPrices
                 .Include(c => c.Car)
-                .Include(l => l.CalculateCost)
+                .Include(l => l.CalculateCost.Select(cc => cc.TypeService.Service))
+                //.OrderBy(s => s.CalculateCost.OrderBy(t => t.TypeService.Service.IsAddService))
                 .FirstOrDefault(p => p.Id == id);
+            ViewBag.IsContainAddService = totalPrice.CalculateCost.Where(s => s.TypeService.Service.IsAddService).FirstOrDefault() != null ? true : false;
+            totalPrice.CalculateCost.OrderBy(s => s.TypeService.Service.IsAddService);
             return View(totalPrice);
         }
     }

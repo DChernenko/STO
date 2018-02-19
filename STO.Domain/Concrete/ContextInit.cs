@@ -191,23 +191,23 @@ namespace STO.Domain.Concrete
         private void AddTotalCost(EFDbContext db)
         {
             #region Car1-3
-            TotalPrice t1 = new TotalPrice() { Id = 1, CarId = 1, Date = new DateTime(2017, 1, 22) };
-            TotalPrice t2 = new TotalPrice() { Id = 2, CarId = 2, Date = new DateTime(2017, 2, 21) };
-            TotalPrice t3 = new TotalPrice() { Id = 3, CarId = 3, Date = new DateTime(2017, 3, 20) };
+            TotalPrice t1 = new TotalPrice() { Id = 1, CarId = 1, Date = new DateTime(2017, 1, 22), AvgState = 33.3 };
+            TotalPrice t2 = new TotalPrice() { Id = 2, CarId = 2, Date = new DateTime(2017, 2, 21), AvgState = 13.3 };
+            TotalPrice t3 = new TotalPrice() { Id = 3, CarId = 3, Date = new DateTime(2017, 3, 20), AvgState = 23.3 };
             db.TotalPrices.AddRange(new List<TotalPrice>() { t1, t2, t3 });
             #endregion
 
             #region Car4-6
-            TotalPrice t4 = new TotalPrice() { Id = 4, CarId = 4, Date = new DateTime(2017, 4, 29) };
-            TotalPrice t5 = new TotalPrice() { Id = 5, CarId = 5, Date = new DateTime(2017, 5, 12) };
-            TotalPrice t6 = new TotalPrice() { Id = 6, CarId = 6, Date = new DateTime(2017, 6, 15) };
+            TotalPrice t4 = new TotalPrice() { Id = 4, CarId = 4, Date = new DateTime(2017, 4, 29), AvgState = 43.3 };
+            TotalPrice t5 = new TotalPrice() { Id = 5, CarId = 5, Date = new DateTime(2017, 5, 12), AvgState = 53.3 };
+            TotalPrice t6 = new TotalPrice() { Id = 6, CarId = 6, Date = new DateTime(2017, 6, 15), AvgState = 63.3 };
             db.TotalPrices.AddRange(new List<TotalPrice>() { t4, t5, t6 });
             #endregion
 
             #region Car7-9
-            TotalPrice t7 = new TotalPrice() { Id = 7, CarId = 7, Date = new DateTime(2017, 7, 19) };
-            TotalPrice t8 = new TotalPrice() { Id = 8, CarId = 8, Date = new DateTime(2017, 8, 14) };
-            TotalPrice t9 = new TotalPrice() { Id = 9, CarId = 9, Date = new DateTime(2017, 9, 5) };
+            TotalPrice t7 = new TotalPrice() { Id = 7, CarId = 7, Date = new DateTime(2017, 7, 19), AvgState = 73.3 };
+            TotalPrice t8 = new TotalPrice() { Id = 8, CarId = 8, Date = new DateTime(2017, 8, 14), AvgState = 83.3 };
+            TotalPrice t9 = new TotalPrice() { Id = 9, CarId = 9, Date = new DateTime(2017, 9, 5), AvgState = 93.3 };
             db.TotalPrices.AddRange(new List<TotalPrice>() { t7, t8, t9 });
             #endregion
         }

@@ -19,9 +19,9 @@
 @AddRow("Номер автомобиля:", @Model.Car.Number)
 @AddRow("Тип автомобиля:", @Model.Car.TypeCar.Name)
 @AddRow("Дата:", @Model.Date)
-@AddRow("Общая стоймось:", @Model.Total)
+@*@AddRow("Общая стоймось:", @Model.Total)*@
 @AddRow("Состояние автомобиля:", @Model.AvgState)
-@AddRow("Услуги:", null)
+@AddRow("Услуги:", "(ед.)")
 
 @{
     foreach (var item in @Model.CalculateCost)
@@ -35,13 +35,14 @@
             if (addService)
             {
                 addService = false;
-                @AddRow("Дополнительные услуги:", null)
+                @AddRow("Дополнительные услуги:", "(грн.)")
             }
             @AddRow(@item.TypeService.Service.Name, @item.TypeService.Service.Cost, false)
         }
     }
 }
-
+<br/>
+@AddRow(null, $"К оплате всего {@Model.Total} денег")
 
 
 

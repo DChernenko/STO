@@ -11,26 +11,31 @@ namespace STO.Domain.Repositories
 {
     public class EFUnitOfWork : IUnitOfWork
     {
-        private EFDbContext db;
-        private bool disposed = false;
-        private CalculateCostRepository calculateCostRepository;
-        private ServiceRepository serviceRepository;
-        private TotalPriceRepository totalPriceRepository;
-        private CarRepository carRepository;
-        private TypeServiceRepository typeServiceRepository;
-        private TypeCarRepository typeCarRepository;
+        private EFDbContext _db;
+        private bool _disposed = false;
+        private CalculateCostRepository _calculateCostRepository;
+        private ServiceRepository _serviceRepository;
+        private TotalPriceRepository _totalPriceRepository;
+        private CarRepository _carRepository;
+        private TypeServiceRepository _typeServiceRepository;
+        private TypeCarRepository _typeCarRepository;
 
         public EFUnitOfWork(string connectionString)
         {
-            db = new EFDbContext(connectionString);
+            _db = new EFDbContext(connectionString);
         }
+        public EFUnitOfWork()
+        {
+
+        }
+
         public IRepository<CalculateCost> CalculateCostes
         {
             get
             {
-                if (calculateCostRepository == null)
-                    calculateCostRepository = new CalculateCostRepository(db);
-                return calculateCostRepository;
+                if (_calculateCostRepository == null)
+                    _calculateCostRepository = new CalculateCostRepository(_db);
+                return _calculateCostRepository;
             }
         }
 
@@ -38,9 +43,9 @@ namespace STO.Domain.Repositories
         {
             get
             {
-                if (serviceRepository == null)
-                    serviceRepository = new ServiceRepository(db);
-                return serviceRepository;
+                if (_serviceRepository == null)
+                    _serviceRepository = new ServiceRepository(_db);
+                return _serviceRepository;
             }
         }
 
@@ -48,9 +53,9 @@ namespace STO.Domain.Repositories
         {
             get
             {
-                if (totalPriceRepository == null)
-                    totalPriceRepository = new TotalPriceRepository(db);
-                return totalPriceRepository;
+                if (_totalPriceRepository == null)
+                    _totalPriceRepository = new TotalPriceRepository(_db);
+                return _totalPriceRepository;
             }
         }
 
@@ -58,9 +63,9 @@ namespace STO.Domain.Repositories
         {
             get
             {
-                if (typeCarRepository == null)
-                    typeCarRepository = new TypeCarRepository(db);
-                return typeCarRepository;
+                if (_typeCarRepository == null)
+                    _typeCarRepository = new TypeCarRepository(_db);
+                return _typeCarRepository;
             }
         }
 
@@ -68,9 +73,9 @@ namespace STO.Domain.Repositories
         {
             get
             {
-                if (typeServiceRepository == null)
-                    typeServiceRepository = new TypeServiceRepository(db);
-                return typeServiceRepository;
+                if (_typeServiceRepository == null)
+                    _typeServiceRepository = new TypeServiceRepository(_db);
+                return _typeServiceRepository;
             }
         }
 
@@ -78,21 +83,21 @@ namespace STO.Domain.Repositories
         {
             get
             {
-                if (carRepository == null)
-                    carRepository = new CarRepository(db);
-                return carRepository;
+                if (_carRepository == null)
+                    _carRepository = new CarRepository(_db);
+                return _carRepository;
             }
         }
 
         public virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!this._disposed)
             {
                 if (disposing)
                 {
-                    db.Dispose();
+                    _db.Dispose();
                 }
-                this.disposed = true;
+                this._disposed = true;
             }
         }
 
@@ -104,7 +109,7 @@ namespace STO.Domain.Repositories
 
         public void Save()
         {
-            db.SaveChanges();
+            _db.SaveChanges();
         }
     }
 }

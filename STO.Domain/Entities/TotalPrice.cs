@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
-    [Serializable]
+    
     public class TotalPrice
     {
         [Key]
@@ -17,18 +17,14 @@ namespace STO.Domain.Entities
         public decimal Total { get; set; }
         public DateTime Date { get; set; }
         public double AvgState { get; set; }
-        //public ICollection<Car> Cars { get; set; }
-
         public int? CarId { get; set; }
         public Car Car { get; set; }
 
-        public List<CalculateCost> CalculateCost { get; set; }
+        public virtual List<CalculateCost> CalculateCost { get; set; }
 
         public TotalPrice()
         {
-            //Cars = new List<Car>();
             CalculateCost = new List<CalculateCost>();
-
         }
 
     }

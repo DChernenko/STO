@@ -11,44 +11,44 @@ namespace STO.Domain.Repositories
 {
    public class CarRepository : IRepository<Car>
     {
-        private EFDbContext db;
+        private EFDbContext _db;
         public CarRepository(EFDbContext db)
         {
-            this.db = db;
+            this._db = db;
         }
 
         public void Create(Car item)
         {
-            db.Cars.Add(item);
+            _db.Cars.Add(item);
         }
 
         public void Delete(int id)
         {
             //Car b = new Car { Id = id };
             //db.Entry(b).State = EntityState.Deleted;
-            Car c = db.Cars.Find(id);
+            Car c = _db.Cars.Find(id);
             if (c != null)
-                db.Cars.Remove(c);
+                _db.Cars.Remove(c);
         }
 
         public IEnumerable<Car> Find(Func<Car, bool> predicate)
         {
-            return db.Cars.Where(predicate).ToList();
+            return _db.Cars.Where(predicate).ToList();
         }
 
         public Car Get(int id)
         {
-            return db.Cars.Find(id);
+            return _db.Cars.Find(id);
         }
 
         public IEnumerable<Car> GetAll()
         {
-            return db.Cars;
+            return _db.Cars;
         }
 
         public void Update(Car item)
         {
-            db.Entry(item).State = EntityState.Modified;
+            _db.Entry(item).State = EntityState.Modified;
         }
     }
 }

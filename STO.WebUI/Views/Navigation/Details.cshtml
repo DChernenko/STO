@@ -1,80 +1,43 @@
 ﻿@model  STO.Domain.Entities.TotalPrice
-
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int i = 0;
+    bool addService = true;
+}
+@helper AddRow(string name, object value, bool shift = true)
+    {
+        var styleName = shift ? "col-6 col-md-4" : "col-6 col-md-4 ml-3";
+        var styleValue = shift ? "col-6 col-md-4 ml-3" : "col-6 col-md-4 mr-3";
+
+        <div class="row">
+            <div class="@styleName">@name</div>
+            <div class="@styleValue">@value</div>
+        </div>
 }
 
-<h2>Details</h2>
-<div class="row">
-    <div class="col-6 col-md-4">
-        Номер автомобиля:
-    </div>
-    <div class="col-6 col-md-4 ml-3">@Model.Car.Number</div>
-</div>
-<div class="row">
-    <div class="col-6 col-md-4">
-        Тип автомобиля:
-    </div>
-    <div class="col-6 col-md-4 ml-3">@Model.Car.TypeCar.Name</div>
-</div>
-<div class="row">
-    <div class="col-6 col-md-4">
-        Дата:
-    </div>
-    <div class="col-6 col-md-4 ml-3">@Model.Date</div>
-</div>
+<h2>Краткая информация</h2>
+@AddRow("Номер автомобиля:", @Model.Car.Number)
+@AddRow("Тип автомобиля:", @Model.Car.TypeCar.Name)
+@AddRow("Дата:", @Model.Date)
+@AddRow("Общая стоймось:", @Model.Total)
+@AddRow("Состояние автомобиля:", @Model.AvgState)
+@AddRow("Услуги:", null)
 
-<div class="row">
-    <div class="col-6 col-md-4">
-        Общая стоймось:
-    </div>
-    <div class="col-6 col-md-4 ml-3">@Model.Total</div>
-</div>
-
-<div class="row">
-    <div class="col-6 col-md-4">
-        Состояние автомобиля:
-    </div>
-    <div class="col-6 col-md-4 ml-3">@Model.AvgState</div>
-</div>
-
-<div class="row">
-    <div class="col-6 col-md-4">
-        Услуги:
-    </div>
-</div>
 @{
-    foreach (STO.Domain.Entities.CalculateCost item in @Model.CalculateCost)
+    foreach (var item in @Model.CalculateCost)
     {
         if (!item.TypeService.Service.IsAddService)
         {
-            <div class="row">
-                <div class="col-6 col-md-4 ml-3">
-                    @item.TypeService.Service.Name
-                </div>
-                <div class="col-6 col-md-4 mr-3">@item.State</div>
-            </div>
+            @AddRow(@item.TypeService.Service.Name, @item.State, false)
         }
         else
         {
-            if (i == 0)
+            if (addService)
             {
-                i++;
-                <div class="row">
-                    <div class="col-6 col-md-4">
-                        Дополнительные услуги:
-                    </div>
-                </div>
+                addService = false;
+                @AddRow("Дополнительные услуги:", null)
             }
-            <div class="row ">
-                <div class="col-6 col-md-4 ml-3">
-                    @item.TypeService.Service.Name
-                </div>
-                <div class="col-6 col-md-4 mr-3">@item.TypeService.Service.Cost</div>
-            </div>
+            @AddRow(@item.TypeService.Service.Name, @item.TypeService.Service.Cost, false)
         }
     }
 }

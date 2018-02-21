@@ -9,36 +9,21 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
-    [Serializable]
-    [DataContract]
     public class TypeService
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [DataMember]
         public int Id { get; set; }
-        [DataMember]
+
         public int? ServiceId { get; set; }
-        [DataMember]
-        public Service Service { get; set; }
-
-        [DataMember]
+        public virtual Service Service { get; set; }
         public int? TypeCarId { get; set; }
-        [DataMember]
-        public TypeCar TypeCar { get; set; }
-
-        //public int? CalculateCostId { get; set; }
-        //public CalculateCost CalculateCost { get; set; }
-        [DataMember]
-        public ICollection<CalculateCost> CalculateCostes { get; set; }
-
+        public virtual TypeCar TypeCar { get; set; }
+        public virtual ICollection<CalculateCost> CalculateCostes { get; set; }
 
         public TypeService()
         {
             CalculateCostes = new List<CalculateCost>();
         }
-
-
-
     }
 }

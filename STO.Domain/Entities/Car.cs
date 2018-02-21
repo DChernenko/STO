@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
-    [Serializable]
     public class Car
     {
         [Key]
@@ -17,10 +16,10 @@ namespace STO.Domain.Entities
         public string Number { get; set; }
 
         public int? TypeCarId { get; set; }
-        public TypeCar TypeCar { get; set; }
+        public virtual TypeCar TypeCar { get; set; }
 
-        public ICollection<CalculateCost> CalculateCostes { get; set; }
-        public ICollection<TotalPrice> TotalPrices { get; set; }
+        public virtual ICollection<CalculateCost> CalculateCostes { get; set; }
+        public virtual ICollection<TotalPrice> TotalPrices { get; set; }
 
         public Car()
         {

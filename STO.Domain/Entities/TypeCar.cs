@@ -8,20 +8,14 @@ using System.Web;
 
 namespace STO.Domain.Entities
 {
-    [Serializable]
-    [DataContract]
     public class TypeCar
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [DataMember]
         public int Id { get; set; }
-        [DataMember]
-        public String Name { get; set; }
-
-        [DataMember]
-        public ICollection<TypeService> TypeServices { get; set; }
-
+        public string Name { get; set; }
+        
+        public virtual ICollection<TypeService> TypeServices { get; set; }
 
         public TypeCar()
         {

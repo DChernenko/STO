@@ -12,44 +12,44 @@ namespace STO.Domain.Repositories
 {
     public class TypeServiceRepository : IRepository<TypeService>
     {
-        private EFDbContext db;
+        private EFDbContext _db;
         public TypeServiceRepository(EFDbContext db)
         {
-            this.db = db;
+            this._db = db;
         }
 
         public void Create(TypeService item)
         {
-            db.TypeServices.Add(item);
+            _db.TypeServices.Add(item);
         }
 
         public void Delete(int id)
         {
             //TypeService b = new TypeService { Id = id };
             //db.Entry(b).State = EntityState.Deleted;
-            TypeService c = db.TypeServices.Find(id);
+            TypeService c = _db.TypeServices.Find(id);
             if (c != null)
-                db.TypeServices.Remove(c);
+                _db.TypeServices.Remove(c);
         }
 
         public IEnumerable<TypeService> Find(Func<TypeService, bool> predicate)
         {
-            return db.TypeServices.Where(predicate).ToList();
+            return _db.TypeServices.Where(predicate).ToList();
         }
 
         public TypeService Get(int id)
         {
-            return db.TypeServices.Find(id);
+            return _db.TypeServices.Find(id);
         }
 
         public IEnumerable<TypeService> GetAll()
         {
-            return db.TypeServices;
+            return _db.TypeServices;
         }
 
         public void Update(TypeService item)
         {
-            db.Entry(item).State = EntityState.Modified;
+            _db.Entry(item).State = EntityState.Modified;
         }
     }
 }

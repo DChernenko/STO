@@ -1,4 +1,7 @@
 ﻿@model  STO.Domain.Entities.TotalPrice
+
+@using STO.WebUI.Resources.View
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,12 +17,15 @@
             <div class="@styleValue">@value</div>
         </div>
 }
+@*<h2>@Resources.Resource</h2>*@
+
+<h2>@STO.WebUI.Resources.View.DetailsResources.String1</h2>
+<h2>@STO.WebUI.Resources.View.DetailsResources.Culture</h2>
 
 <h2>Краткая информация</h2>
 @AddRow("Номер автомобиля:", @Model.Car.Number)
 @AddRow("Тип автомобиля:", @Model.Car.TypeCar.Name)
 @AddRow("Дата:", @Model.Date)
-@*@AddRow("Общая стоймось:", @Model.Total)*@
 @AddRow("Состояние автомобиля:", @Model.AvgState)
 @AddRow("Услуги:", "(ед.)")
 
@@ -41,9 +47,5 @@
         }
     }
 }
-<br/>
+<br />
 @AddRow(null, $"К оплате всего {@Model.Total} денег")
-
-
-
-

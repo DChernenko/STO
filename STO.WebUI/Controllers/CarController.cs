@@ -7,9 +7,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using STO.WebUI.Filters;
 
 namespace STO.WebUI.Controllers
 {
+    [Culture]
     public class CarController : Controller
     {
         EFDbContext db = new EFDbContext("EFDbContext");

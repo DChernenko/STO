@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="card-header">
+            @{Html.RenderAction("Language", "Navigation"); }
+        </div>
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-2 col-md-2">
                 One of 2 columns
@@ -23,10 +26,10 @@
                 @*@{Html.Action("PViewTotalPrice", "Navigation"); }*@
             </div>
         </div>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

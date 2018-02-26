@@ -45,10 +45,15 @@ namespace STO.WebUI.Controllers
             return View(totalPrice);
         }
 
-        public ActionResult ChancgeLanguage(string lang)
+        public ActionResult Language()
+        {
+            return PartialView("ChangeLanguage");
+        }
+
+        public ActionResult ChangeLanguage(string lang)
         {
             // Список культур
-            List<string> cultures = new List<string>() { "ru", "en"};
+            List<string> cultures = new List<string>() { "ru", "en" };
             if (!cultures.Contains(lang))
             {
                 lang = "ru";
@@ -59,14 +64,13 @@ namespace STO.WebUI.Controllers
                 cookie.Value = lang;   // если куки уже установлено, то обновляем значение
             else
             {
-
                 cookie = new HttpCookie("lang");
                 cookie.HttpOnly = false;
                 cookie.Value = lang;
                 cookie.Expires = DateTime.Now.AddYears(1);
             }
             Response.Cookies.Add(cookie);
-            return Redirect(Request.UrlReferrer.AbsolutePath);
+            return Redirect(Request.Url.AbsoluteUri);  /*PartialView(); *///Redirect(Request.UrlReferrer.AbsolutePath);
         }
     }
 }

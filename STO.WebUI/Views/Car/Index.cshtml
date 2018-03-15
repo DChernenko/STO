@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@using (Html.BeginForm("AddData", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="">Тип Автомобиля</label>
@@ -11,7 +11,6 @@
         </div>
     </div>
 }
-
 
 @section scripts{
     @Scripts.Render("~/scripts/Custom/TypeCar.js")

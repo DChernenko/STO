@@ -70,7 +70,7 @@ namespace STO.WebUI.Controllers
                 cookie.Expires = DateTime.Now.AddYears(1);
             }
             Response.Cookies.Add(cookie);
-            return Redirect(Request.Url.AbsoluteUri);  /*PartialView(); *///Redirect(Request.UrlReferrer.AbsolutePath);
+            return Redirect(Request.UrlReferrer?.AbsolutePath);  /*PartialView(); *///Redirect(Request.UrlReferrer.AbsolutePath);
         }
     }
 }

@@ -4,11 +4,14 @@
     });
 
 });
-
+var response = {};
+var getListItemSelectedVal = function () {
+    return $("#TypeCar option:selected").val();
+};
 
 function GetTypeCar() {
     $.ajax({
-        url: '/Home/GetServices/' + $("#TypeCar option:selected").val(),
+        url: '/Home/GetServices/' + getListItemSelectedVal(),
         type: 'GET',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -17,7 +20,7 @@ function GetTypeCar() {
             WriteResponse(data);
         }
     });
-    
+
 };
 function ClearStaticField() {
     $(".form-horizontal").children().not("div[class='form-group row']:first").remove();
@@ -25,17 +28,19 @@ function ClearStaticField() {
 
 function WriteResponse(data) {
     if (data) {
+
         ClearStaticField();
         var form = $(".form-horizontal");
         var jsonDatas = JSON.parse(data);
+        response = JSON.parse(data);
         for (var i = 0; i < jsonDatas.length; i++) {
             var divControlGroup = $("<div/>").addClass('form-group row');
             var lable = $("<lable/>").addClass('col-sm-2 col-form-label').text(jsonDatas[i].Service.Name);
             var divControls = $("<div/>").addClass('col-3');
             var input =
                 jsonDatas[i].Service.IsAddService ?
-                    $('<input/>').attr({ type: 'checkbox', name: 'Services' }):
-                    $('<input/>').attr({ type: 'text', name: 'Services' }).addClass("form-control text-right");
+                    $('<input/>').attr({ type: 'checkbox', name: 'Services' + i }) :
+                    $('<input/>').attr({ type: 'text', name: 'Services' + i }).addClass("form-control text-right");
 
             divControls.append(input);
             divControlGroup.append(lable);
@@ -43,8 +48,44 @@ function WriteResponse(data) {
             form.append(divControlGroup);
         }
         var button = $('<button/>')
-            .attr({ type: 'submit', value: 'Добавить' })
-            .addClass("btn btn-lg btn-primary").text("Добавить");
+            .attr({ type: 'button', value: 'Добавить' })
+            .addClass("btn btn-lg btn-primary").text("Добавить").click(function () {
+                var service = {
+                    TypeCarId: response.TypeCarId,
+                    Services: []
+                };
+
+                $(arguments[0].currentTarget.form).find('input').each(function (index, item) {
+                    switch (item.type) {
+                        case "text":
+                            service.Services.push({
+                                key: response[index].Id,
+                                value: parseInt($(item).val() ? $(item).val() : "0")
+                            });
+                            break;
+                        case "checkbox":
+                            service.Services.push({
+                                key: response[index].Id,
+                                value: $(item).prop('checked') ? 1 : 0
+                            });
+                            break;
+                        default: break;
+                    }
+                });
+
+                $.ajax({
+                    url: '/Car/AddData',
+                    type: 'POST',
+                    dataType: "json",
+                    data: JSON.stringify(service),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+
+
+            });
         form.append(button);
     }
 };

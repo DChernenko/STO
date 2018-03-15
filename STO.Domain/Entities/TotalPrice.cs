@@ -27,5 +27,6 @@ namespace STO.Domain.Entities
             CalculateCost = new List<CalculateCost>();
         }
 
+
     }
 }

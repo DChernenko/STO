@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Concrete
 {
-    public class ContextInit : DropCreateDatabaseAlways<EFDbContext>
+    public class ContextInit : DropCreateDatabaseIfModelChanges<EFDbContext>
     {
         protected override void Seed(EFDbContext db)
         {

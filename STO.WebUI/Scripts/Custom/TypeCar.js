@@ -51,7 +51,7 @@ function WriteResponse(data) {
             .attr({ type: 'button', value: 'Добавить' })
             .addClass("btn btn-lg btn-primary").text("Добавить").click(function () {
                 var service = {
-                    TypeCarId: response.TypeCarId,
+                    TypeCarId: getListItemSelectedVal(),
                     Services: []
                 };
 
@@ -59,13 +59,13 @@ function WriteResponse(data) {
                     switch (item.type) {
                         case "text":
                             service.Services.push({
-                                key: response[index].Id,
+                                key: response[index].ServiceId,
                                 value: parseInt($(item).val() ? $(item).val() : "0")
                             });
                             break;
                         case "checkbox":
                             service.Services.push({
-                                key: response[index].Id,
+                                key: response[index].ServiceId,
                                 value: $(item).prop('checked') ? 1 : 0
                             });
                             break;

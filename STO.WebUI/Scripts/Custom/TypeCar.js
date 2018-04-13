@@ -1,17 +1,17 @@
 ﻿$(function () {
     $('#TypeCar').change(function () {
-        GetTypeCar()
+        GetTypeCar();
     });
 
 });
 var response = {};
-var getListItemSelectedVal = function () {
+function GetListItemSelectedVal() {
     return $("#TypeCar option:selected").val();
 };
 
 function GetTypeCar() {
     $.ajax({
-        url: '/Home/GetServices/' + getListItemSelectedVal(),
+        url: '/Home/GetServices/' + GetListItemSelectedVal(),
         type: 'GET',
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -23,8 +23,12 @@ function GetTypeCar() {
 
 };
 function ClearStaticField() {
-    $(".form-horizontal").children().not("div[class='form-group row']:first").remove();
+    $(".form-horizontal").children().not("div[id='baseControls']").remove();//поправить
 };
+
+function GetNumberCarVal() {
+    return $("#NumberCar").val();
+}
 
 function WriteResponse(data) {
     if (data) {
@@ -51,11 +55,12 @@ function WriteResponse(data) {
             .attr({ type: 'button', value: 'Добавить' })
             .addClass("btn btn-lg btn-primary").text("Добавить").click(function () {
                 var service = {
-                    TypeCarId: getListItemSelectedVal(),
+                    TypeCarId: GetListItemSelectedVal(),
+                    NumberCar: GetNumberCarVal(),
                     Services: []
                 };
 
-                $(arguments[0].currentTarget.form).find('input').each(function (index, item) {
+                $(arguments[0].currentTarget.form).find('input').not($("#NumberCar")).each(function (index, item) {
                     switch (item.type) {
                         case "text":
                             service.Services.push({
@@ -83,8 +88,6 @@ function WriteResponse(data) {
                         console.log(data);
                     }
                 });
-
-
             });
         form.append(button);
     }

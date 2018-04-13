@@ -4,8 +4,15 @@
 }
 @using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="">Тип Автомобиля</label>
+    <div class="form-group row" id="baseControls">
+        <label class="col-sm-2 col-form-label" for="">Номер автомобиля</label>
+        <div class="col-3">
+            <input type="text" name="NumberCar" id="NumberCar" />
+        </div>
+    </div>
+
+    <div class="form-group row" id="baseControls">
+        <label class="col-sm-2 col-form-label" for="">Тип автомобиля</label>
         <div class="col-3">
             @Html.DropDownList("TypeCar", @ViewBag.ListType as SelectList, new { @class = "form-control text-right" })
         </div>

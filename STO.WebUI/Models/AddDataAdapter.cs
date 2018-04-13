@@ -9,5 +9,6 @@ namespace STO.WebUI.Models
     {
         public int TypeCarId { get; set; }
         public Dictionary<int, int> Services { get; set; }
+        public string NumberCar { get; set; }
     }
 }

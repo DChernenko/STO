@@ -56,9 +56,14 @@ namespace STO.WebUI.Controllers
             decimal price = Convert.ToDecimal(WebConfigurationManager.AppSettings["Price"]);
             TotalPrice totalPrice = new TotalPrice();
             List<CalculateCost> list = new List<CalculateCost>(addCar.Services.Count);
-            Car car = new Car();
-            car.TypeCarId = addCar.TypeCarId;
-            car.Number = "CC4444CC";
+            Car car = db.Cars.SingleOrDefault(cars => cars.Number == addCar.NumberCar);
+            if (car == null)
+            {
+                car = new Car();
+                car.TypeCarId = addCar.TypeCarId;
+                car.Number = addCar.NumberCar;
+            }
+
 
             var listsCalculate = (from typeServices in db.TypeServices.ToList()
                                   join addCars in addCar.Services

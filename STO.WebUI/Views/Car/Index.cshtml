@@ -5,15 +5,15 @@
 @using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="form-group row" id="baseControls">
-        <label class="col-sm-2 col-form-label" for="">Номер автомобиля</label>
-        <div class="col-3">
-            <input type="text" name="NumberCar" id="NumberCar" />
+        <label class="col-sm-4 col-form-label" for="NumberCar">Номер автомобиля</label>
+        <div class="col-sm-6">
+            <input type="text" name="NumberCar" id="NumberCar" class="form-control text-right" />
         </div>
     </div>
 
     <div class="form-group row" id="baseControls">
-        <label class="col-sm-2 col-form-label" for="">Тип автомобиля</label>
-        <div class="col-3">
+        <label class="col-sm-4 col-form-label" for="TypeCar">Тип автомобиля</label>
+        <div class="col-sm-6">
             @Html.DropDownList("TypeCar", @ViewBag.ListType as SelectList, new { @class = "form-control text-right" })
         </div>
     </div>

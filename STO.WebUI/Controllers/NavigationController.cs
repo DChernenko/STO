@@ -25,9 +25,11 @@ namespace STO.WebUI.Controllers
         [ChildActionOnly]
         public ActionResult PViewTotalPrice()
         {
-            List<TotalPrice> totalPrices = db.TotalPrices
-                .Include(c => c.Car).Take(Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]))
+            int count = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
+            List<TotalPrice> totalPrices = db.TotalPrices.OrderByDescending(o => o.Date)
+                .Include(c => c.Car).Take(count)
                 .ToList();
+            ViewData["ListLastCars"] = count;
             return PartialView("PViewTotalPrice", totalPrices);
         }
 

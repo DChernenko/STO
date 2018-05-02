@@ -2,7 +2,7 @@
     $('#TypeCar').change(function () {
         GetTypeCar();
     });
-
+    GetTypeCar();
 });
 var response = {};
 function GetListItemSelectedVal() {
@@ -38,16 +38,22 @@ function WriteResponse(data) {
         var jsonDatas = JSON.parse(data);
         response = JSON.parse(data);
         for (var i = 0; i < jsonDatas.length; i++) {
+            var inputName = 'Services' + i;
             var divControlGroup = $("<div/>").addClass('form-group row');
-            var lable = $("<lable/>").addClass('col-sm-2 col-form-label').text(jsonDatas[i].Service.Name);
-            var divControls = $("<div/>").addClass('col-3');
+            var label = $("<label/>")
+                .addClass('col-sm-4 col-form-label')
+                .attr("for", inputName)
+                .text(jsonDatas[i].Service.Name);
+
+            var divControls = $("<div/>").addClass('col-sm-6');
             var input =
                 jsonDatas[i].Service.IsAddService ?
-                    $('<input/>').attr({ type: 'checkbox', name: 'Services' + i }) :
-                    $('<input/>').attr({ type: 'text', name: 'Services' + i }).addClass("form-control text-right");
+                    $('<input/>').attr({ type: 'checkbox', name: inputName }) :
+                    $('<input/>').attr({ type: 'text', name: inputName })
+                        .addClass("form-control text-right");
 
             divControls.append(input);
-            divControlGroup.append(lable);
+            divControlGroup.append(label);
             divControlGroup.append(divControls);
             form.append(divControlGroup);
         }

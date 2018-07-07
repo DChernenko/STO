@@ -87,8 +87,8 @@ namespace STO.WebUI.Controllers
             db.SaveChanges();
 
             //for shpw data
-            var carInfos = (from cars in db.Cars
-                            join totalPrices in db.TotalPrices on cars.Id equals totalPrices.CarId
+            var carInfos = (from totalPrices in db.TotalPrices
+                            join cars in db.Cars on totalPrices.CarId equals  cars.Id
                             join tpCar in db.TypeCars on cars.TypeCar.Id equals tpCar.Id
                             orderby totalPrices.Date descending
                             select new
@@ -163,8 +163,6 @@ namespace STO.WebUI.Controllers
                            Cost = service.Cost,
                            TotalPrice = totalPrice.Total
                        };
-
-
             return View();
         }
 

@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
+@*@using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="form-group row" id="baseControls">
         <label class="col-sm-4 col-form-label" for="NumberCar">Номер автомобиля</label>
@@ -17,8 +17,10 @@
             @Html.DropDownList("TypeCar", @ViewBag.ListType as SelectList, new { @class = "form-control text-right" })
         </div>
     </div>
-}
+}*@
 
-@section scripts{
+@Html.Partial("Forms/BusFormView")
+
+@*@section scripts{
     @Scripts.Render("~/scripts/Custom/TypeCar.js")
-}
+}*@

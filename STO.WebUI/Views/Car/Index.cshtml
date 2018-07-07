@@ -1,26 +1,32 @@
-﻿@model  STO.WebUI.Models.AddCar
+﻿@using STO.Domain.Entities
+@model  List<TypeCar>
+
 @{
     ViewBag.Title = "Home Page";
 }
-@*@using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    <div class="form-group row" id="baseControls">
-        <label class="col-sm-4 col-form-label" for="NumberCar">Номер автомобиля</label>
-        <div class="col-sm-6">
-            <input type="text" name="NumberCar" id="NumberCar" class="form-control text-right" />
-        </div>
+@using STO.WebUI.Resources.View
+
+<div class="form-group row" id="baseControls">
+    <label class="col-sm-4 col-form-label" for="TypeCar">@DetailsRes.CarType</label>
+    <div class="col-sm-6">
+        <select class="form-control text-right" id="TypeCar" name="TypeCar">
+            @foreach (var item in Model)
+            {
+                <option value="@Url.Action(item.UrlForm, "Car", null, Request.Url.Scheme)">@item.Name</option>
+            }
+        </select>
+
+        @*@Html.DropDownList("TypeCar", Model, new { @class = "form-control text-right" })*@
     </div>
+</div>
 
-    <div class="form-group row" id="baseControls">
-        <label class="col-sm-4 col-form-label" for="TypeCar">Тип автомобиля</label>
-        <div class="col-sm-6">
-            @Html.DropDownList("TypeCar", @ViewBag.ListType as SelectList, new { @class = "form-control text-right" })
-        </div>
-    </div>
-}*@
+<div id="typeCar" ></div>
 
-@Html.Partial("Forms/BusFormView")
 
-@*@section scripts{
-    @Scripts.Render("~/scripts/Custom/TypeCar.js")
-}*@
+    @*@Html.Partial("Forms/BusFormView")*@
+
+    @section scripts{
+
+        @Scripts.Render("~/scripts/Custom/TypeCar.js")
+    }
+

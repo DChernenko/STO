@@ -22,9 +22,9 @@ namespace STO.Domain.Concrete
         }
         private void AddTypeCar(EFDbContext db)
         {
-            TypeCar t1 = new TypeCar { Id = 1, Name = "Легковой автомобиль" };
-            TypeCar t2 = new TypeCar { Id = 2, Name = "Автобус" };
-            TypeCar t3 = new TypeCar { Id = 3, Name = "Грузовик" };
+            TypeCar t1 = new TypeCar { Id = 1, Name = "Легковой автомобиль",UrlForm= "GetCarViewModel" };
+            TypeCar t2 = new TypeCar { Id = 2, Name = "Автобус", UrlForm = "GetBusViewModel" };
+            TypeCar t3 = new TypeCar { Id = 3, Name = "Грузовик", UrlForm = "GetTruckViewModel" };
             db.TypeCars.AddRange(new List<TypeCar>() { t1, t2, t3 });
 
         }

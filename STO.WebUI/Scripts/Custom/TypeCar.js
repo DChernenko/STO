@@ -1,13 +1,28 @@
-﻿$(function () {
+﻿//$(function () {
+//    $('#TypeCar').change(function () {
+//        GetTypeCar();
+//    });
+//    GetTypeCar();
+//});
+
+$(function () {
     $('#TypeCar').change(function () {
-        GetTypeCar();
+        GetCarTypeView();
     });
-    GetTypeCar();
+    GetCarTypeView();
 });
-var response = {};
-function GetListItemSelectedVal() {
-    return $("#TypeCar option:selected").val();
+
+function GetCarTypeView() {
+    var listItem = GetListItemSelectedVal();
+    $("#typeCar").load(listItem);
+
 };
+
+
+
+
+var response = {};
+
 
 function GetTypeCar() {
     $.ajax({
@@ -22,6 +37,11 @@ function GetTypeCar() {
     });
 
 };
+
+function GetListItemSelectedVal() {
+    return $("#TypeCar option:selected").val();
+};
+
 function ClearStaticField() {
     $(".form-horizontal").children().not("div[id='baseControls']").remove();//поправить
 };

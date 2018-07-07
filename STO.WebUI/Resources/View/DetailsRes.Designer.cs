@@ -61,6 +61,96 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Тормоза.
+        /// </summary>
+        public static string Brake {
+            get {
+                return ResourceManager.GetString("Brake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Кузов.
+        /// </summary>
+        public static string CarCase {
+            get {
+                return ResourceManager.GetString("CarCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер автомобиля.
+        /// </summary>
+        public static string CarNumber {
+            get {
+                return ResourceManager.GetString("CarNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип автомобиля.
+        /// </summary>
+        public static string CarType {
+            get {
+                return ResourceManager.GetString("CarType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Двигатель.
+        /// </summary>
+        public static string Engine {
+            get {
+                return ResourceManager.GetString("Engine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дополнительные услуги.
+        /// </summary>
+        public static string Extra {
+            get {
+                return ResourceManager.GetString("Extra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поручни.
+        /// </summary>
+        public static string Handrail {
+            get {
+                return ResourceManager.GetString("Handrail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Гидравлика.
+        /// </summary>
+        public static string Hydraulics {
+            get {
+                return ResourceManager.GetString("Hydraulics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сиденья.
+        /// </summary>
+        public static string Seat {
+            get {
+                return ResourceManager.GetString("Seat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Замена обшивки сидения.
+        /// </summary>
+        public static string SkinReplacement {
+            get {
+                return ResourceManager.GetString("SkinReplacement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ru2.
         /// </summary>
         public static string String1 {
@@ -75,6 +165,60 @@ namespace STO.WebUI.Resources.View {
         public static string String2 {
             get {
                 return ResourceManager.GetString("String2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Хоодовая.
+        /// </summary>
+        public static string Undercarriage {
+            get {
+                return ResourceManager.GetString("Undercarriage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Значение должно бить в диапазоне от 0 до 100.
+        /// </summary>
+        public static string ValRang0100Fld {
+            get {
+                return ResourceManager.GetString("ValRang0100Fld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле обязательное для заполнения.
+        /// </summary>
+        public static string ValRequiredFld {
+            get {
+                return ResourceManager.GetString("ValRequiredFld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер автомобиля должен состоять с 8 символов.
+        /// </summary>
+        public static string ValStrLengthFld {
+            get {
+                return ResourceManager.GetString("ValStrLengthFld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Колеса.
+        /// </summary>
+        public static string Wheel {
+            get {
+                return ResourceManager.GetString("Wheel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Балансировка колес.
+        /// </summary>
+        public static string WheelBalancing {
+            get {
+                return ResourceManager.GetString("WheelBalancing", resourceCulture);
             }
         }
     }

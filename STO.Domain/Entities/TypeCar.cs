@@ -14,7 +14,9 @@ namespace STO.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        
+        public string UrlForm { get; set; }
+
+
         public virtual ICollection<TypeService> TypeServices { get; set; }
 
         public TypeCar()

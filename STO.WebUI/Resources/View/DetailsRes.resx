@@ -117,12 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Brake" xml:space="preserve">
+    <value>Тормоза</value>
+  </data>
+  <data name="CarCase" xml:space="preserve">
+    <value>Кузов</value>
+  </data>
+  <data name="CarNumber" xml:space="preserve">
+    <value>Номер автомобиля</value>
+  </data>
+  <data name="CarType" xml:space="preserve">
+    <value>Тип автомобиля</value>
+  </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Двигатель</value>
+  </data>
+  <data name="Extra" xml:space="preserve">
+    <value>Дополнительные услуги</value>
+  </data>
+  <data name="Handrail" xml:space="preserve">
+    <value>Поручни</value>
+  </data>
+  <data name="Hydraulics" xml:space="preserve">
+    <value>Гидравлика</value>
+  </data>
+  <data name="Seat" xml:space="preserve">
+    <value>Сиденья</value>
+  </data>
+  <data name="SkinReplacement" xml:space="preserve">
+    <value>Замена обшивки сидения</value>
+  </data>
   <data name="String1" xml:space="preserve">
     <value>Ru2</value>
-    <comment>1</comment>
   </data>
   <data name="String2" xml:space="preserve">
     <value>Ru1</value>
-    <comment>3</comment>
+  </data>
+  <data name="Undercarriage" xml:space="preserve">
+    <value>Хоодовая</value>
+  </data>
+  <data name="ValRang0100Fld" xml:space="preserve">
+    <value>Значение должно бить в диапазоне от 0 до 100</value>
+  </data>
+  <data name="ValRequiredFld" xml:space="preserve">
+    <value>Поле обязательное для заполнения</value>
+  </data>
+  <data name="ValStrLengthFld" xml:space="preserve">
+    <value>Номер автомобиля должен состоять с 8 символов</value>
+  </data>
+  <data name="Wheel" xml:space="preserve">
+    <value>Колеса</value>
+  </data>
+  <data name="WheelBalancing" xml:space="preserve">
+    <value>Балансировка колес</value>
   </data>
 </root>

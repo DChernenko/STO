@@ -4,10 +4,10 @@
     public interface IModel { }
     public abstract class BaseCarViewModel
     {
-        [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
-        [MaxLength(8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
-        [MinLength(8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
-        [Display(Name = "CarNumber", ResourceType = typeof(Resources.View.DetailsRes))]
+        //[Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
+        //[MaxLength(8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
+        //[MinLength(8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
+        //[Display(Name = "CarNumber", ResourceType = typeof(Resources.View.DetailsRes))]
         public string CarNumber { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]

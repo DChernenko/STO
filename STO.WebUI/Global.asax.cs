@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Ninject;
+using Ninject.Web.Mvc;
+using STO.WebUI.Infrastrucure;
 using STO.WebUI.MappingSettings;
 using System;
 using System.Collections.Generic;
@@ -17,8 +20,10 @@ namespace STO.WebUI
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);            
             MapperInit.Init();
+            //DependencyResolver.SetResolver(NinjectResolver.Resolve());
+            //DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
         }
     }
 }

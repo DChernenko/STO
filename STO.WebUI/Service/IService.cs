@@ -9,6 +9,7 @@ namespace STO.WebUI.Service
 
     {
         void Save(List<T> list);
+        void Save(T item);
         IEnumerable<T> GetLists();
     }
 }

@@ -10,29 +10,28 @@ using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using STO.WebUI.Filters;
+using STO.Domain.Interfaces;
+using STO.WebUI.Service;
 
 namespace STO.WebUI.Controllers
 {
     [Culture]
     public class CarController : Controller
     {
-        EFDbContext db = new EFDbContext("EFDbContext");
+        private readonly IUnitOfWork _unitOfWork;
 
-
-        public ActionResult Add(BusViewModel bus)
+        public CarController(IUnitOfWork unitOfWork)
         {
-            bool state = ModelState.IsValid;
+            _unitOfWork = unitOfWork;
+        }
+
+        public ActionResult Add(CarViewModel car)
+        {
+            var service = new Service<CarViewModel, Car>(_unitOfWork);
+            service.Save(car);
             
             return View();
-        }
-        
-
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
+        }        
     }
 }
 

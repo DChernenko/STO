@@ -2,6 +2,7 @@
 using STO.Domain.Concrete;
 using STO.Domain.DAL;
 using STO.Domain.Entities;
+using STO.Domain.Interfaces;
 using STO.WebUI.Models;
 using STO.WebUI.Service;
 using System.Collections.Generic;
@@ -15,11 +16,11 @@ namespace STO.WebUI.Controllers
     {
         EFDbContext db = new EFDbContext("EFDbContext");
 
-        //private void SetFormContext() {
-        //    if (this.ViewContext.FormContext == null)
-        //    {
-        //        this.ViewContext.FormContext = new FormContext();
-        //    }
+        private readonly IUnitOfWork _unitOfWork;
+
+        //public HomeController(IUnitOfWork unitOfWork)
+        //{
+        //    _unitOfWork = unitOfWork;
         //}
 
         public ActionResult GetCarViewModel()

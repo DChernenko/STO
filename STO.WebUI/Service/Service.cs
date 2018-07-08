@@ -36,8 +36,21 @@ namespace STO.WebUI.Service
                 }
                 else
                 {
-                    _unitOfWork.Repository<E>().Add(item.ToDBObject().);
+                    _unitOfWork.Repository<E>().Add(item.ToDBObject());
                 }
+            }
+            _unitOfWork.Save();
+        }
+
+        public void Save(T item)
+        {
+            if (_unitOfWork.Repository<E>().Find(t => t.Id == item.ToDBObject().Id) != null)
+            {
+                _unitOfWork.Repository<E>().Update(item.ToDBObject());
+            }
+            else
+            {
+                _unitOfWork.Repository<E>().Add(item.ToDBObject());
             }
             _unitOfWork.Save();
         }

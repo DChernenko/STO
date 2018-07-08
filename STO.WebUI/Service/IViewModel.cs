@@ -1,11 +1,12 @@
 ﻿namespace STO.WebUI.Service
 {
     using STO.Domain.Interfaces;
+    using STO.WebUI.Models;
 
-    public interface IViewModel<E ,T> where T : IEntity
-                                        where E : class
+    public interface IViewModel<E > where E : IEntity
+                                        
     {
-        T ToDBObject();
-        E ToViewObject(T t);
+        E ToDBObject();
+        IModel ToViewObject(E t);
     }
 }

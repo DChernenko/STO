@@ -5,10 +5,10 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.ComponentModel.DataAnnotations;
 
-    public abstract class BaseCar:IEntity
+    public abstract class BaseCar : IEntity
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string CarNumber { get; set; }
         public int CarCase { get; set; }

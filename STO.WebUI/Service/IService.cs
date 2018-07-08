@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace STO.WebUI.Service
 {
-    public interface IService<T, E> where T : IViewModel<IModel, E>
+    public interface IService<T, E> where T : IViewModel<E>
                                    where E : class, IEntity
 
     {

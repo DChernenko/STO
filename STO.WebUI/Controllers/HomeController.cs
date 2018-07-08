@@ -39,27 +39,29 @@ namespace STO.WebUI.Controllers
 
         public ActionResult Index()
         {
-            var service = new Service<CarViewModel,Car>(new UnitOfWork());
+            //var service = new Service<CarViewModel, Car>(new UnitOfWork());
+            //var lists = service.GetLists();
+
             return View(db.TypeCars.ToList<TypeCar>());
         }
 
 
 
-        public JsonResult GetServices(int? id)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            List<TypeService> services = db.TypeServices
-                .Include(p => p.Service)
-                .Where(s => s.TypeCarId == id && s.Service.IsActive)
-                .ToList();
-            JsonSerializerSettings settings = new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                Formatting = Formatting.Indented
-            };
-            string json = JsonConvert.SerializeObject(services, settings);
-            return Json(json, JsonRequestBehavior.AllowGet);
-        }
+        //public JsonResult GetServices(int? id)
+        //{
+        //    db.Configuration.ProxyCreationEnabled = false;
+        //    List<TypeService> services = db.TypeServices
+        //        .Include(p => p.Service)
+        //        .Where(s => s.TypeCarId == id && s.Service.IsActive)
+        //        .ToList();
+        //    JsonSerializerSettings settings = new JsonSerializerSettings
+        //    {
+        //        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+        //        Formatting = Formatting.Indented
+        //    };
+        //    string json = JsonConvert.SerializeObject(services, settings);
+        //    return Json(json, JsonRequestBehavior.AllowGet);
+        //}
 
         protected override void Dispose(bool disposing)
         {

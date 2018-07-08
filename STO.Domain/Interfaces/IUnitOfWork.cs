@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Interfaces
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork :IDisposable
     {
-        IRepository<CalculateCost> CalculateCostes { get; }
-        IRepository<Service> Services { get; }
-        IRepository<TotalPrice> TotalPrices { get; }
-        IRepository<TypeCar> TypeCars { get; }
-        IRepository<TypeService> TypeServices { get; }
-        IRepository<Car> Cars { get; }
-                
+        IRepository<T> Repository<T>() where T : class, IEntity;
         void Save();
+        Task SaveAsync();        
     }
 }

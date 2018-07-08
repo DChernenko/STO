@@ -1,12 +1,12 @@
 ﻿@model STO.WebUI.Models.TruckViewModel
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Add", "Truck", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>TruckViewModel</h4>
-        <hr />
+    if (this.ViewContext.FormContext == null)
+    {
+        this.ViewContext.FormContext = new FormContext();
+    }
+    @Html.AntiForgeryToken()    
+    <div class="form-horizontal">                
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.CarNumber, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -57,21 +57,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Hydraulics, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Hydraulics, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Hydraulics, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

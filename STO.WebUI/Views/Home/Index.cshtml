@@ -1,17 +1,24 @@
-﻿@model  STO.WebUI.Models.AddCar
+﻿@using STO.Domain.Entities
+@model  List<TypeCar>
+
 @{
     ViewBag.Title = "Home Page";
 }
-@using (Html.BeginForm("AddData", "Car", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="">Тип Автомобиля</label>
-        <div class="col-3">
-            @Html.DropDownList("TypeCar", @ViewBag.ListType as SelectList, new { @class = "form-control text-right" })
-        </div>
-    </div>
-}
+@using STO.WebUI.Resources.View
 
+<div class="form-group" id="baseControls">
+    <label class="col-sm-4 col-form-label" for="TypeCar">@DetailsRes.CarType</label>
+    <div class="col-sm-6">
+        <select class="form-control text-right" id="TypeCar" name="TypeCar">
+            @foreach (var item in Model)
+            {
+                <option value="@Url.Action(item.UrlForm, "Home", null, Request.Url.Scheme)">@item.Name</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div id="typeCar"></div>
 
 @section scripts{
     @Scripts.Render("~/scripts/Custom/TypeCar.js")

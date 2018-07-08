@@ -1,7 +1,7 @@
 ﻿namespace STO.WebUI.Models
 {
     using System.ComponentModel.DataAnnotations;
-
+    public interface IModel { }
     public abstract class BaseCarViewModel
     {
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]

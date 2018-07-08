@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using STO.Domain.Concrete;
+using STO.Domain.DAL;
 using STO.Domain.Entities;
 using STO.WebUI.Models;
+using STO.WebUI.Service;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace STO.WebUI.Controllers
 {
@@ -14,20 +15,35 @@ namespace STO.WebUI.Controllers
     {
         EFDbContext db = new EFDbContext("EFDbContext");
 
+        //private void SetFormContext() {
+        //    if (this.ViewContext.FormContext == null)
+        //    {
+        //        this.ViewContext.FormContext = new FormContext();
+        //    }
+        //}
+
+        public ActionResult GetCarViewModel()
+        {
+            return PartialView("Forms/CarFormView");
+        }
+
+        public ActionResult GetBusViewModel()
+        {
+            return PartialView("Forms/BusFormView");
+        }
+
+        public ActionResult GetTruckViewModel()
+        {
+            return PartialView("Forms/TruckFormView");
+        }
+
         public ActionResult Index()
         {
-            //ViewBag.ListType = new SelectList(db.TypeCars.Select(c => new SelectListItem
-            //{
-            //    Value = c.Id.ToString(),
-            //    Text = c.Name
-
-            //}));
-            ViewBag.ListType = new SelectList(db.TypeCars.ToList<TypeCar>(), "Id", "Name");
-
-
-
-            return View();
+            var service = new Service<CarViewModel,Car>(new UnitOfWork());
+            return View(db.TypeCars.ToList<TypeCar>());
         }
+
+
 
         public JsonResult GetServices(int? id)
         {
@@ -35,21 +51,14 @@ namespace STO.WebUI.Controllers
             List<TypeService> services = db.TypeServices
                 .Include(p => p.Service)
                 .Where(s => s.TypeCarId == id && s.Service.IsActive)
-                .ToList();                        
+                .ToList();
             JsonSerializerSettings settings = new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 Formatting = Formatting.Indented
             };
-            string json = JsonConvert.SerializeObject(services, settings);           
+            string json = JsonConvert.SerializeObject(services, settings);
             return Json(json, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public string AddData(AddCar addCar)
-        {
-
-            return "Спасибо"; ;
         }
 
         protected override void Dispose(bool disposing)

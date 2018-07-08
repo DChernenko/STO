@@ -50,22 +50,21 @@
   <ItemGroup>
     <Compile Include="Concrete\ContextInit.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="DAL\UnitOfWork.cs" />
+    <Compile Include="Entities\BaseCar.cs" />
+    <Compile Include="Entities\Bus.cs" />
     <Compile Include="Entities\CalculateCost.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\TotalPrice.cs" />
+    <Compile Include="Entities\Truck.cs" />
     <Compile Include="Entities\TypeCar.cs" />
     <Compile Include="Entities\TypeService.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CalculateCostRepository.cs" />
-    <Compile Include="Repositories\CarRepository.cs" />
-    <Compile Include="Repositories\EFUnitOfWork.cs" />
-    <Compile Include="Repositories\ServiceRepository.cs" />
-    <Compile Include="Repositories\TotalPriceRepository.cs" />
-    <Compile Include="Repositories\TypeCarRepository.cs" />
-    <Compile Include="Repositories\TypeServiceRepository.cs" />
+    <Compile Include="DAL\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

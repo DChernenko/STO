@@ -6,7 +6,7 @@
 }
 @using STO.WebUI.Resources.View
 
-<div class="form-group row" id="baseControls">
+<div class="form-group" id="baseControls">
     <label class="col-sm-4 col-form-label" for="TypeCar">@DetailsRes.CarType</label>
     <div class="col-sm-6">
         <select class="form-control text-right" id="TypeCar" name="TypeCar">
@@ -26,7 +26,7 @@
     @*@Html.Partial("Forms/BusFormView")*@
 
     @section scripts{
-
-        @Scripts.Render("~/scripts/Custom/TypeCar.js")
+    @Scripts.Render("~/scripts/Custom/Validation.js")
+    @Scripts.Render("~/scripts/Custom/TypeCar.js")
     }
 

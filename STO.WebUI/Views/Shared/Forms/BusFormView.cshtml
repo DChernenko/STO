@@ -1,12 +1,12 @@
 ﻿@model STO.WebUI.Models.BusViewModel
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Add", "Bus", FormMethod.Post))
 {
+    if (this.ViewContext.FormContext == null)
+    {
+        this.ViewContext.FormContext = new FormContext();
+    }
     @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
-        <h4>BusViewModel</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.CarNumber, htmlAttributes: new { @class = "control-label col-md-2" })

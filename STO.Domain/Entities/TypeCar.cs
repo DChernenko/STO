@@ -16,7 +16,6 @@ namespace STO.Domain.Entities
         public string Name { get; set; }
         public string UrlForm { get; set; }
 
-
         public virtual ICollection<TypeService> TypeServices { get; set; }
 
         public TypeCar()

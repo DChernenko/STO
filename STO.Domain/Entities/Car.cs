@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
-    public class Car
+    public class Car: BaseCar
     {
+        public int? WheelBalancing { get; set; }
+
+        /*
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -26,6 +29,6 @@ namespace STO.Domain.Entities
             CalculateCostes = new List<CalculateCost>();
             TotalPrices = new List<TotalPrice>();
         }
-
+        */
     }
 }

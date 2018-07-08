@@ -14,16 +14,22 @@ $(function () {
 
 function GetCarTypeView() {
     var listItem = GetListItemSelectedVal();
-    $("#typeCar").load(listItem);
-
+    $("#typeCar").load(listItem, function (data) {
+        setValidation();
+    });
 };
 
 
+setValidation = function () {
+    $("form").each(function () { $.data($(this)[0], 'validator', false); });
+    $.validator.unobtrusive.parse("form");
+}
+function GetListItemSelectedVal() {
+    return $("#TypeCar option:selected").val();
+};
 
-
+/*
 var response = {};
-
-
 function GetTypeCar() {
     $.ajax({
         url: '/Home/GetServices/' + GetListItemSelectedVal(),
@@ -35,7 +41,6 @@ function GetTypeCar() {
             WriteResponse(data);
         }
     });
-
 };
 
 function GetListItemSelectedVal() {
@@ -52,7 +57,6 @@ function GetNumberCarVal() {
 
 function WriteResponse(data) {
     if (data) {
-
         ClearStaticField();
         var form = $(".form-horizontal");
         var jsonDatas = JSON.parse(data);
@@ -71,7 +75,6 @@ function WriteResponse(data) {
                     $('<input/>').attr({ type: 'checkbox', name: inputName }) :
                     $('<input/>').attr({ type: 'text', name: inputName })
                         .addClass("form-control text-right");
-
             divControls.append(input);
             divControlGroup.append(label);
             divControlGroup.append(divControls);
@@ -85,7 +88,6 @@ function WriteResponse(data) {
                     NumberCar: GetNumberCarVal(),
                     Services: []
                 };
-
                 $(arguments[0].currentTarget.form).find('input').not($("#NumberCar")).each(function (index, item) {
                     switch (item.type) {
                         case "text":
@@ -103,7 +105,6 @@ function WriteResponse(data) {
                         default: break;
                     }
                 });
-
                 $.ajax({
                     url: '/Car/AddData',
                     type: 'POST',
@@ -117,4 +118,4 @@ function WriteResponse(data) {
             });
         form.append(button);
     }
-};
+};*/

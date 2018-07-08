@@ -36,15 +36,16 @@ namespace STO.WebUI.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            TotalPrice totalPrice = db.TotalPrices
-                .Include(c => c.Car.TypeCar)
-                .Include(l => l.CalculateCost.Select(cc => cc.TypeService.Service))
-                //.OrderBy(s => s.CalculateCost.OrderBy(t => t.TypeService.Service.IsAddService))
-                .FirstOrDefault(p => p.Id == id);
-            ViewBag.IsContainAddService =
-                totalPrice?.CalculateCost.FirstOrDefault(s => s.TypeService.Service.IsAddService) != null;
-            totalPrice?.CalculateCost.OrderBy(s => s.TypeService.Service.IsAddService);
-            return View(totalPrice);
+            //TotalPrice totalPrice = db.TotalPrices
+            //    .Include(c => c.Car.TypeCar)
+            //    .Include(l => l.CalculateCost.Select(cc => cc.TypeService.Service))
+            //    //.OrderBy(s => s.CalculateCost.OrderBy(t => t.TypeService.Service.IsAddService))
+            //    .FirstOrDefault(p => p.Id == id);
+            //ViewBag.IsContainAddService =
+            //    totalPrice?.CalculateCost.FirstOrDefault(s => s.TypeService.Service.IsAddService) != null;
+            //totalPrice?.CalculateCost.OrderBy(s => s.TypeService.Service.IsAddService);
+            //return View(totalPrice);
+            return null;
         }
 
         public ActionResult Language()

@@ -14,20 +14,20 @@ namespace STO.Domain.Concrete
         {
             // test data for list cars
             AddTypeCar(db);
-            AddService(db);
-            AddTypeService(db);
-            AddCar(db);
-            AddTotalCost(db);
-            AddCalculateCostes(db);
+            //AddService(db);
+            //AddTypeService(db);
+            //AddCar(db);
+            //AddTotalCost(db);
+            //AddCalculateCostes(db);
         }
         private void AddTypeCar(EFDbContext db)
         {
-            TypeCar t1 = new TypeCar { Id = 1, Name = "Легковой автомобиль",UrlForm= "GetCarViewModel" };
+            TypeCar t1 = new TypeCar { Id = 1, Name = "Легковой автомобиль", UrlForm = "GetCarViewModel" };
             TypeCar t2 = new TypeCar { Id = 2, Name = "Автобус", UrlForm = "GetBusViewModel" };
             TypeCar t3 = new TypeCar { Id = 3, Name = "Грузовик", UrlForm = "GetTruckViewModel" };
             db.TypeCars.AddRange(new List<TypeCar>() { t1, t2, t3 });
-
         }
+        /*
         private void AddService(EFDbContext db)
         {
             Service s1 = new Service { Id = 1, Name = "Кузов", IsAddService = false, IsActive = true };
@@ -189,6 +189,7 @@ namespace STO.Domain.Concrete
             #endregion
         }
         private void AddTotalCost(EFDbContext db)
+
         {
             #region Car1-3
             TotalPrice t1 = new TotalPrice() { Id = 1, CarId = 1, Date = new DateTime(2017, 1, 22), AvgState = 33.3 };
@@ -210,6 +211,9 @@ namespace STO.Domain.Concrete
             TotalPrice t9 = new TotalPrice() { Id = 9, CarId = 9, Date = new DateTime(2017, 9, 5), AvgState = 93.3 };
             db.TotalPrices.AddRange(new List<TotalPrice>() { t7, t8, t9 });
             #endregion
+           
         }
+        */
+
     }
 }

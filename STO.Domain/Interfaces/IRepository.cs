@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace STO.Domain.Interfaces
+﻿namespace STO.Domain.Interfaces
 {
-    public interface IRepository<T> where T : class
-    {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Threading.Tasks;
 
-        IEnumerable<T> GetAll();
-        T Get(int id);
-        IEnumerable<T> Find(Func<T, Boolean> predicate);
-        void Create(T item);
-        void Update(T item);
-        void Delete(int id);
+    public interface IRepository<T> : IDisposable where T : class, IEntity
+    {
+        IQueryable<T> Query();
+        IEnumerable<T> All();
+        Task<IEnumerable<T>> AllAsync();
+        T Get(Guid id);
+        Task<T> GetAsync(Guid id);
+        T Find(Func<T, bool> predicate);
+        bool Update(T entity);
+        Task<T> FindAsync(Expression<Func<T, bool>> predicate);
+        void Add(T entity);
+        void AddRange(IEnumerable<T> entities);
+        void Attach(T entity);
+        void Delete(T entity);
+        void DeleteRange(IEnumerable<T> entities);
     }
 }

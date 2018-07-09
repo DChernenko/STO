@@ -1,13 +1,19 @@
 ﻿namespace STO.WebUI.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public interface IModel { }
     public abstract class BaseCarViewModel
     {
-        //[Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
-        //[MaxLength(8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
-        //[MinLength(8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
-        //[Display(Name = "CarNumber", ResourceType = typeof(Resources.View.DetailsRes))]
+        [HiddenInput(DisplayValue = false)]
+        public Guid Id { set; get; }
+
+        
+        [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
+        [StringLength(8, MinimumLength = 8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
+        [Display(Name = "CarNumber", ResourceType = typeof(Resources.View.DetailsRes))]
         public string CarNumber { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]

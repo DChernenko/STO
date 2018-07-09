@@ -12,7 +12,8 @@ using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using STO.WebUI.Filters;
-
+using STO.Domain.DAL;
+using STO.WebUI.Service;
 
 namespace STO.WebUI.Controllers
 {
@@ -21,10 +22,19 @@ namespace STO.WebUI.Controllers
     {
         EFDbContext db = new EFDbContext("EFDbContext");
 
+        private readonly UnitOfWork _unitOfWork;
+
+        public NavigationController(UnitOfWork unitofWork)
+        {
+            _unitOfWork = unitofWork;
+        }
+
         [HttpGet]
         [ChildActionOnly]
         public ActionResult PViewTotalPrice()
         {
+            //var servic = new Service<>();
+
             int count = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
             List<TotalPrice> totalPrices = db.TotalPrices.OrderByDescending(o => o.Date)
                 .Include(c => c.Car).Take(count)

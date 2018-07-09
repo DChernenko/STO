@@ -97,6 +97,15 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Двигатель.
         /// </summary>
         public static string Engine {

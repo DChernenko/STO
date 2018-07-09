@@ -21,9 +21,8 @@ namespace STO.WebUI.Service
         {
 
             return _unitOfWork.Repository<E>().All().Select(s =>
-            {
-                var temp = Activator.CreateInstance<T>();
-                return (T)temp.ToViewObject(s);
+            {                
+                return (T)Activator.CreateInstance<T>().ToViewObject(s);
             }).ToList();
         }
 

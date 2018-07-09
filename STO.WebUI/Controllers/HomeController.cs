@@ -18,10 +18,10 @@ namespace STO.WebUI.Controllers
 
         private readonly IUnitOfWork _unitOfWork;
 
-        //public HomeController(IUnitOfWork unitOfWork)
-        //{
-        //    _unitOfWork = unitOfWork;
-        //}
+        public HomeController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
 
         public ActionResult GetCarViewModel()
         {
@@ -40,8 +40,8 @@ namespace STO.WebUI.Controllers
 
         public ActionResult Index()
         {
-            //var service = new Service<CarViewModel, Car>(new UnitOfWork());
-            //var lists = service.GetLists();
+            var service = new Service<CarViewModel, Car>(_unitOfWork);
+            var lists = service.GetLists();
 
             return View(db.TypeCars.ToList<TypeCar>());
         }

@@ -1,20 +1,13 @@
-﻿using System;
-using Newtonsoft.Json;
-using STO.Domain.Concrete;
-using STO.Domain.Entities;
-using STO.WebUI.Models;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web.Configuration;
-using System.Web.Mvc;
-using System.Web.Script.Serialization;
-using STO.WebUI.Filters;
-using STO.Domain.Interfaces;
-using STO.WebUI.Service;
-
-namespace STO.WebUI.Controllers
+﻿namespace STO.WebUI.Controllers
 {
+    using STO.Domain.Entities;
+    using STO.Domain.Interfaces;
+    using STO.WebUI.Filters;
+    using STO.WebUI.Models;
+    using STO.WebUI.Service;
+    using System.Web.Mvc;
+
+
     [Culture]
     public class CarController : Controller
     {

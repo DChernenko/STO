@@ -33,7 +33,6 @@ namespace STO.WebUI.Controllers
         [ChildActionOnly]
         public ActionResult PViewTotalPrice()
         {
-            //var servic = new Service<>();
 
             int count = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
             List<TotalPrice> totalPrices = db.TotalPrices.OrderByDescending(o => o.Date)

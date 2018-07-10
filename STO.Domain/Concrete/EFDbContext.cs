@@ -37,7 +37,7 @@ namespace STO.Domain.Concrete
                 m =>
                 {
                     m.MapInheritedProperties();
-                    m.ToTable("Cars");
+                    //m.ToTable("Cars");
                 }
                 );
 
@@ -45,7 +45,7 @@ namespace STO.Domain.Concrete
                 m =>
                 {
                     m.MapInheritedProperties();
-                    m.ToTable("Buses");
+                    //m.ToTable("Buses");
                 }
                 );
 
@@ -53,7 +53,7 @@ namespace STO.Domain.Concrete
                 m =>
                 {
                     m.MapInheritedProperties();
-                    m.ToTable("Trucks");
+                    //m.ToTable("Trucks");
                 }
                 );
 

@@ -33,29 +33,29 @@ namespace STO.Domain.Concrete
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>().Map(
-                m =>
-                {
-                    m.MapInheritedProperties();
-                    //m.ToTable("Cars");
-                }
-                );
+            //modelBuilder.Entity<Car>().Map(
+            //    m =>
+            //    {
+            //        m.MapInheritedProperties();
+            //        //m.ToTable("Cars");
+            //    }
+            //    );
 
-            modelBuilder.Entity<Bus>().Map(
-                m =>
-                {
-                    m.MapInheritedProperties();
-                    //m.ToTable("Buses");
-                }
-                );
+            //modelBuilder.Entity<Bus>().Map(
+            //    m =>
+            //    {
+            //        m.MapInheritedProperties();
+            //        //m.ToTable("Buses");
+            //    }
+            //    );
 
-            modelBuilder.Entity<Truck>().Map(
-                m =>
-                {
-                    m.MapInheritedProperties();
-                    //m.ToTable("Trucks");
-                }
-                );
+            //modelBuilder.Entity<Truck>().Map(
+            //    m =>
+            //    {
+            //        m.MapInheritedProperties();
+            //        //m.ToTable("Trucks");
+            //    }
+            //    );
 
         }
     }

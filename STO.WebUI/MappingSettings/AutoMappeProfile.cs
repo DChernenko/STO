@@ -57,4 +57,21 @@ namespace STO.WebUI.MappingSettings
     }
 
 
+    public class TypeCarToVMProfile : Profile
+    {
+        protected override void Configure()
+        {
+            AutoMapper.Mapper.CreateMap<TypeCar, TypeCarViewModel>();
+        }
+    }
+    public class VMToTypeCarProfile : Profile
+    {
+        protected override void Configure()
+        {
+            AutoMapper.Mapper.CreateMap<TypeCarViewModel, TypeCar>();
+        }
+    }
+
+
+
 }

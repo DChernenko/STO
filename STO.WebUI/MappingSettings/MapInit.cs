@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace STO.WebUI.MappingSettings
+﻿namespace STO.WebUI.MappingSettings
 {
+    using AutoMapper;
+
     public class MapperInit
     {
         public static void Init() {
@@ -17,6 +13,8 @@ namespace STO.WebUI.MappingSettings
                 x.AddProfile<VMToBusProfile>();
                 x.AddProfile<TruckToVMProfile>();
                 x.AddProfile<VMToTruckProfile>();
+                x.AddProfile<TypeCarToVMProfile>();
+                x.AddProfile<VMToTypeCarProfile>();
             });
         }
     }

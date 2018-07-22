@@ -115,7 +115,7 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Дополнительные услуги.
+        ///   Looks up a localized string similar to Дополнительные услуги:.
         /// </summary>
         public static string Extra {
             get {

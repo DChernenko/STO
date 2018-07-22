@@ -41,8 +41,8 @@ namespace STO.WebUI.Controllers
         public ActionResult Index()
         {
             var servic = new Service<TypeCarViewModel, TypeCar>(_unitOfWork);
-            //var service = new Service<CarViewModel, Car>(_unitOfWork);
-            //var lists = service.GetLists();
+            var service = new Service<CarViewModel, Car>(_unitOfWork);
+            var lists = service.GetLists();
             return View(servic.GetLists());
         }
 

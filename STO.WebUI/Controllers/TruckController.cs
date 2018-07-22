@@ -14,7 +14,6 @@
             _unitOfWork = unitOfWork;
         }
 
-
         public ActionResult Add(TruckViewModel truck)
         {
             var service = new Service<TruckViewModel, Truck>(_unitOfWork);

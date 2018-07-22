@@ -15,10 +15,17 @@
             _unitOfWork = unitOfWork;
         }
 
-        public ActionResult Add(BusViewModel bus) {
-            var service = new Service<BusViewModel, Bus>(_unitOfWork);
-            service.Save(bus);
+        public ActionResult Add(BusViewModel bus)
+        {
+            if (ModelState.IsValid)
+            {
+                var service = new Service<BusViewModel, Bus>(_unitOfWork);
+                service.Save(bus);
+            }
+            else {
+                Redirect(Request.UrlReferrer?.AbsolutePath);
+            }
             return View();
-        }      
+        }
     }
 }

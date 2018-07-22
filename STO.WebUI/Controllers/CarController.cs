@@ -22,7 +22,6 @@
         {
             var service = new Service<CarViewModel, Car>(_unitOfWork);
             service.Save(car);
-            
             return View();
         }        
     }

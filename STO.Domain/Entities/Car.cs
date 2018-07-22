@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
+//[Table("BaseCar")]
     public class Car: BaseCar
     {
         public int? WheelBalancing { get; set; }

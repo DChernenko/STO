@@ -1,26 +1,24 @@
-﻿using AutoMapper;
-using AutoMapper.Mappers;
-using STO.Domain.Entities;
-using STO.WebUI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace STO.WebUI.MappingSettings
+﻿namespace STO.WebUI.MappingSettings
 {
-    public class CarToVMProfile: Profile
+
+    using AutoMapper;
+    using STO.Domain.Entities;
+    using STO.WebUI.Models;
+
+
+    public class CarToVMProfile : Profile
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<Car, CarViewModel>();
+
+            Mapper.CreateMap<Car, CarViewModel>().ForMember(c => c.Extra, x => x.MapFrom(s => s.WheelBalancing != null));
         }
     }
     public class VMToCarProfile : Profile
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<CarViewModel,Car>();
+            Mapper.CreateMap<CarViewModel, Car>().ForMember(c => c.WheelBalancing, x => x.MapFrom(s => s.Extra ? s.WheelBalancing : 0));
         }
     }
 
@@ -28,7 +26,7 @@ namespace STO.WebUI.MappingSettings
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<BusViewModel, Bus>();
+            Mapper.CreateMap<BusViewModel, Bus>().ForMember(c => c.SkinReplacement, x => x.MapFrom(s => s.Extra ? s.SkinReplacement : 0)); ;
         }
     }
 
@@ -36,7 +34,7 @@ namespace STO.WebUI.MappingSettings
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<Bus, BusViewModel>();
+            Mapper.CreateMap<Bus, BusViewModel>().ForMember(c => c.Extra, x => x.MapFrom(s => s.SkinReplacement != null));
         }
     }
 
@@ -44,7 +42,7 @@ namespace STO.WebUI.MappingSettings
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<TruckViewModel, Truck>();
+            Mapper.CreateMap<TruckViewModel, Truck>();
         }
     }
 
@@ -52,7 +50,7 @@ namespace STO.WebUI.MappingSettings
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<Truck, TruckViewModel>();
+            Mapper.CreateMap<Truck, TruckViewModel>();
         }
     }
 
@@ -61,14 +59,14 @@ namespace STO.WebUI.MappingSettings
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<TypeCar, TypeCarViewModel>();
+            Mapper.CreateMap<TypeCar, TypeCarViewModel>();
         }
     }
     public class VMToTypeCarProfile : Profile
     {
         protected override void Configure()
         {
-            AutoMapper.Mapper.CreateMap<TypeCarViewModel, TypeCar>();
+            Mapper.CreateMap<TypeCarViewModel, TypeCar>();
         }
     }
 

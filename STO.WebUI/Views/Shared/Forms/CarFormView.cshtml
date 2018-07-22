@@ -61,9 +61,11 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Extra, htmlAttributes: new { @class = "control-label col-md-2" })
+            
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Extra)
+                    @Html.LabelFor(model => model.WheelBalancing)
                     @Html.ValidationMessageFor(model => model.Extra, "", new { @class = "text-danger" })
                 </div>
             </div>

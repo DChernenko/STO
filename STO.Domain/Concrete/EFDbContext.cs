@@ -15,10 +15,12 @@ namespace STO.Domain.Concrete
         public DbSet<TotalPrice> TotalPrices { get; set; }
         public DbSet<TypeCar> TypeCars { get; set; }
         public DbSet<TypeService> TypeServices { get; set; }
-        public DbSet<Car> Cars { get; set; }
-        public DbSet<Bus> Buses { get; set; }
-        public DbSet<Truck> Trucks { get; set; }
-        
+        //public DbSet<Car> Cars { get; set; }
+        //public DbSet<Bus> Buses { get; set; }
+        //public DbSet<Truck> Trucks { get; set; }
+
+        public DbSet<BaseCar> BaseCar { get; set; }
+
         public EFDbContext(string connectionString)
            : base(connectionString)
         {
@@ -33,6 +35,7 @@ namespace STO.Domain.Concrete
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<BaseCar>();
             //modelBuilder.Entity<Car>().Map(
             //    m =>
             //    {

@@ -7,8 +7,8 @@
 @using STO.WebUI.Resources.View
 
 <div class="form-group" id="baseControls">
-    <label class="col-sm-4 col-form-label" for="TypeCar">@DetailsRes.CarType</label>
-    <div class="col-sm-6">
+    <label class="control-label col-md-2" for="TypeCar">@DetailsRes.CarType</label>
+    <div class="col-md-10">
         <select class="form-control text-right" id="TypeCar" name="TypeCar">
             @foreach (var item in Model)
             {
@@ -20,13 +20,11 @@
     </div>
 </div>
 
-<div id="typeCar" ></div>
+<div id="typeCar"></div>
+@*@Html.Partial("Forms/BusFormView")*@
 
-
-    @*@Html.Partial("Forms/BusFormView")*@
-
-    @section scripts{
+@section scripts{
     @Scripts.Render("~/scripts/Custom/Validation.js")
     @Scripts.Render("~/scripts/Custom/TypeCar.js")
-    }
+}
 

@@ -4,6 +4,7 @@
     using STO.Domain.Interfaces;
     using STO.WebUI.Models;
     using STO.WebUI.Service;
+    using System;
     using System.Web.Mvc;
 
     public class BusController : Controller
@@ -19,6 +20,7 @@
         {
             if (ModelState.IsValid)
             {
+                //bus.TypeCar = new TypeCar() { Id = new Guid("9135ead9-7893-e811-97a8-00505697018a") };
                 var service = new Service<BusViewModel, Bus>(_unitOfWork);
                 service.Save(bus);
             }

@@ -16,5 +16,7 @@
         public int Engine { get; set; }
         public int Brake { get; set; }
         public int Undercarriage { get; set; }
+
+        public TypeCar typeCar { get; set; }
     }
 }

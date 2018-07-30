@@ -15,6 +15,8 @@
                 x.AddProfile<VMToTruckProfile>();
                 x.AddProfile<TypeCarToVMProfile>();
                 x.AddProfile<VMToTypeCarProfile>();
+                x.AddProfile<CarResultToVMProfile>();
+                x.AddProfile<VMToCarResultProfile>();
             });
         }
     }

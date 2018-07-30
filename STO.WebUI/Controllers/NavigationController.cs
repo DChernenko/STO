@@ -29,18 +29,18 @@ namespace STO.WebUI.Controllers
             _unitOfWork = unitofWork;
         }
 
-        [HttpGet]
-        [ChildActionOnly]
-        public ActionResult PViewTotalPrice()
-        {
+        //[HttpGet]
+        //[ChildActionOnly]
+        //public ActionResult PViewTotalPrice()
+        //{
 
-            int count = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
-            List<TotalPrice> totalPrices = db.TotalPrices.OrderByDescending(o => o.Date)
-                .Include(c => c.Car).Take(count)
-                .ToList();
-            ViewData["ListLastCars"] = count;
-            return PartialView("PViewTotalPrice", totalPrices);
-        }
+        //    int count = Convert.ToInt32(WebConfigurationManager.AppSettings["ListLastCars"]);
+        //    List<TotalPrice> totalPrices = db.TotalPrices.OrderByDescending(o => o.Date)
+        //        .Include(c => c.Car).Take(count)
+        //        .ToList();
+        //    ViewData["ListLastCars"] = count;
+        //    return PartialView("PViewTotalPrice", totalPrices);
+        //}
 
         [HttpGet]
         public ActionResult Details(int id)

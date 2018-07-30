@@ -70,6 +70,20 @@
         }
     }
 
+    public class CarResultToVMProfile : Profile
+    {
+        protected override void Configure()
+        {
+            Mapper.CreateMap<CarResult, CarResultViewModel>();
+        }
+    }
+    public class VMToCarResultProfile : Profile
+    {
+        protected override void Configure()
+        {
+            Mapper.CreateMap<CarResultViewModel, CarResult>();
+        }
+    }
 
 
 }

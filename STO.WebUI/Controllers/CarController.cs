@@ -5,6 +5,7 @@
     using STO.WebUI.Filters;
     using STO.WebUI.Models;
     using STO.WebUI.Service;
+    using System;
     using System.Web.Mvc;
 
 
@@ -20,10 +21,18 @@
 
         public ActionResult Add(CarViewModel car)
         {
-            var service = new Service<CarViewModel, Car>(_unitOfWork);
-            service.Save(car);
+            if (ModelState.IsValid)
+            {
+                //car.TypeCar = new TypeCar() { Id = new Guid("9035ead9-7893-e811-97a8-00505697018a") };
+                var service = new Service<CarViewModel, Car>(_unitOfWork);
+                service.Save(car);
+
+                var result = new Service<CarResultViewModel, CarResult>(_unitOfWork);
+                var lists = result.GetLists();
+
+            }
             return View();
-        }        
+        }
     }
 }
 

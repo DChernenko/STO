@@ -3,7 +3,7 @@
     using STO.Domain.Interfaces;
     using STO.WebUI.Models;
 
-    public interface IViewModel<E > where E : IEntity
+    public interface IViewModel<E> where E : IEntity
                                         
     {
         E ToDBObject();

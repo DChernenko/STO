@@ -55,6 +55,7 @@
     <Compile Include="Entities\Bus.cs" />
     <Compile Include="Entities\CalculateCost.cs" />
     <Compile Include="Entities\Car.cs" />
+    <Compile Include="Entities\CarResult.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\TotalPrice.cs" />
     <Compile Include="Entities\Truck.cs" />

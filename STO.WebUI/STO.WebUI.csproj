@@ -188,11 +188,11 @@
     <Compile Include="Infrastrucure\NinjectResolver.cs" />
     <Compile Include="MappingSettings\AutoMappeProfile.cs" />
     <Compile Include="MappingSettings\MapInit.cs" />
-    <Compile Include="Models\AddCar.cs" />
     <Compile Include="Models\AddDataAdapter.cs" />
     <Compile Include="Models\BaseCarViewModel.cs" />
     <Compile Include="Models\BusViewModel.cs" />
     <Compile Include="Models\CarInfo.cs" />
+    <Compile Include="Models\CarResultViewModel.cs" />
     <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Models\TruckViewModel.cs" />
     <Compile Include="Models\TypeCarViewModel.cs" />

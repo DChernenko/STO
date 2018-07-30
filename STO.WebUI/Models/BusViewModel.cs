@@ -19,8 +19,9 @@
 
         [Display(Name = "Extra", ResourceType = typeof(Resources.View.DetailsRes))]
         public bool Extra { get; set; }
+
         [Display(Name = "SkinReplacement", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int SkinReplacement { get; set; } = 300;
+        public int? SkinReplacement { get; set; } = 300;
 
         public Bus ToDBObject()
         {

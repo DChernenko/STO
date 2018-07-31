@@ -1,5 +1,4 @@
-﻿
-namespace STO.Domain.Concrete
+﻿namespace STO.Domain.Concrete
 {
     using STO.Domain.Entities;
     using System.Data.Entity;
@@ -14,9 +13,9 @@ namespace STO.Domain.Concrete
         //public DbSet<Truck> Trucks { get; set; }
 
         public DbSet<TypeCar> TypeCars { get; set; }
-        public DbSet<TypeService> TypeServices { get; set; }
-        public DbSet<BaseCar> BaseCar { get; set; }
-        public DbSet<CarResult> CarResult { get; set; }
+        //public DbSet<TypeService> TypeServices { get; set; }
+        public DbSet<BaseCar> BaseCars { get; set; }
+        public DbSet<CarResult> CarResults { get; set; }
 
         public EFDbContext(string connectionString)
            : base(connectionString)
@@ -31,32 +30,11 @@ namespace STO.Domain.Concrete
             Database.SetInitializer<EFDbContext>(new ContextInit());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<BaseCar>();
-            //modelBuilder.Entity<Car>().Map(
-            //    m =>
-            //    {
-            //        m.MapInheritedProperties();
-            //        //m.ToTable("Cars");
-            //    }
-            //    );
-
-            //modelBuilder.Entity<Bus>().Map(
-            //    m =>
-            //    {
-            //        m.MapInheritedProperties();
-            //        //m.ToTable("Buses");
-            //    }
-            //    );
-
-            //modelBuilder.Entity<Truck>().Map(
-            //    m =>
-            //    {
-            //        m.MapInheritedProperties();
-            //        //m.ToTable("Trucks");
-            //    }
-            //    );
-
+        {            
+            modelBuilder.Configurations.Add(new VCalculateResultConfiguration());
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<CarResult>().HasKey(t => t.Id);
+            //modelBuilder.Entity<CarResult>() Query<CarResult>().ToView("VCalculateResult");                       
         }
     }
 }

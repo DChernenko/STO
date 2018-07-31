@@ -19,18 +19,28 @@ namespace STO.WebUI.Service
 
         public IEnumerable<T> GetLists()
         {
-
             return _unitOfWork.Repository<E>().All().Select(s =>
-            {                
+            {
                 return (T)Activator.CreateInstance<T>().ToViewObject(s);
             }).ToList();
+        }
+
+        public IEnumerable<T> GetLists(int skipt, int take)
+        {
+            return _unitOfWork.Repository<E>()
+                .Query()
+                .Skip(skipt)
+                .Take(take)
+                .Select(s => (T)Activator.CreateInstance<T>().ToViewObject(s))
+                .ToList();
         }
 
         public void Save(List<T> list)
         {
             foreach (var item in list)
             {
-                if (_unitOfWork.Repository<E>().Find(t => t.Id == item.ToDBObject().Id) != null) {
+                if (_unitOfWork.Repository<E>().Find(t => t.Id == item.ToDBObject().Id) != null)
+                {
                     _unitOfWork.Repository<E>().Update(item.ToDBObject());
                 }
                 else

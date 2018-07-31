@@ -39,40 +39,42 @@
         [Display(Name = "Brake", ResourceType = typeof(Resources.View.DetailsRes))]
         public int Brake { get; set; }
         public int BrakeVal { get; set; }
+
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Undercarriage", ResourceType = typeof(Resources.View.DetailsRes))]
         public int Undercarriage { get; set; }
         public int UndercarriageVal { get; set; }
 
-        public int? WheelBalancing { get; set; }
+        public int? AddService { get; set; }
+        //public int? WheelBalancing { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Handrail", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Handrail { get; set; }
-        public int HandrailVal { get; set; }
+        public int? Handrail { get; set; }
+        public int? HandrailVal { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Seat", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Seat { get; set; }
-        public int SeatVal { get; set; }
+        public int? Seat { get; set; }
+        public int? SeatVal { get; set; }
 
-        public int? SkinReplacement { get; set; }
+        //public int? SkinReplacement { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Hydraulics", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Hydraulics { get; set; }
-        public int HydraulicsVal { get; set; }
+        public int? Hydraulics { get; set; }
+        public int? HydraulicsVal { get; set; }
 
 
         public int TotalPrice { get; set; }
 
         public int AvgState { get; set; }
 
-        public string TypeCar { get; set; }
+        //public string TypeCar { get; set; }
 
 
 

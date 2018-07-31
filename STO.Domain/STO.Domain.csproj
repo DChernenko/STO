@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Concrete\ContextInit.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\VCalculateResultConfiguration.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Entities\BaseCar.cs" />
     <Compile Include="Entities\Bus.cs" />
@@ -71,6 +72,5 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

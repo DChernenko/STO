@@ -7,16 +7,11 @@
         public static void Init() {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<CarToVMProfile>();
-                x.AddProfile<VMToCarProfile>();
-                x.AddProfile<BusToVMProfile>();
-                x.AddProfile<VMToBusProfile>();
-                x.AddProfile<TruckToVMProfile>();
-                x.AddProfile<VMToTruckProfile>();
-                x.AddProfile<TypeCarToVMProfile>();
-                x.AddProfile<VMToTypeCarProfile>();
-                x.AddProfile<CarResultToVMProfile>();
-                x.AddProfile<VMToCarResultProfile>();
+                x.AddProfile<CarProfile>();
+                x.AddProfile<BusProfile>();
+                x.AddProfile<TruckProfile>();
+                x.AddProfile<TypeCarProfile>();
+                x.AddProfile<CarResultProfile>();
             });
         }
     }

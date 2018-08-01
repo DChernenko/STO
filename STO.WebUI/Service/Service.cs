@@ -1,13 +1,12 @@
-﻿using STO.Domain.Interfaces;
-using STO.WebUI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace STO.WebUI.Service
+﻿namespace STO.WebUI.Service
 {
+    using AutoMapper;
+    using STO.Domain.Interfaces;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Service<T, E> : IService<T, E>
-                                     where T : IViewModel<E>
+                                   where T : IViewModel<E>
                                    where E : class, IEntity
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -19,21 +18,18 @@ namespace STO.WebUI.Service
 
         public IEnumerable<T> GetLists()
         {
-            return _unitOfWork.Repository<E>().All().Select(s =>
-            {
-                return (T)Activator.CreateInstance<T>().ToViewObject(s);
-            }).ToList();
+            return _unitOfWork.Repository<E>().All().Select(s => Mapper.Map<E, T>(s)).ToList();
         }
 
         public IEnumerable<T> GetLists(int skipt, int take)
         {
             return _unitOfWork.Repository<E>()
                 .Query()
-                .OrderByDescending(o=>o.Id)
+                .OrderByDescending(o => o.Id)
                 .Skip(skipt)
                 .Take(take)
                 .ToList()
-                .Select(s => (T)Activator.CreateInstance<T>().ToViewObject(s));
+                .Select(s => Mapper.Map<E, T>(s));
         }
 
         public void Save(List<T> list)

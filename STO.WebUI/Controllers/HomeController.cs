@@ -51,6 +51,7 @@ namespace STO.WebUI.Controllers
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             var result = new Service<CarResultViewModel, CarResult>(_unitOfWork);
+
             var lists = result.GetLists(pageNumber, pageSize);
 
             return View(lists);

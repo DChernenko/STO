@@ -10,7 +10,6 @@ namespace STO.Domain.Concrete
 {
     public class ContextInit : DropCreateDatabaseIfModelChanges<EFDbContext> //DropCreateDatabaseIfModelChanges<EFDbContext> //DropCreateDatabaseAlways<EFDbContext>
     {
-
         private EFDbContext _db;
         protected override void Seed(EFDbContext db)
         {
@@ -18,8 +17,8 @@ namespace STO.Domain.Concrete
             // test data for list cars
             AddTypeCar();
             AddCar();
-            DropViewVCalculateResult(_db);
-            CreateViewVCalculateResult(_db);
+            DropViewVCalculateResult();
+            CreateViewVCalculateResult();
             //AddService(_db);
             //AddTypeService(_db);
             //AddCar(_db);
@@ -36,12 +35,14 @@ namespace STO.Domain.Concrete
 
         private void AddCar()
         {
-            BaseCar bc1 = new Car() { Brake = 1, CarNumber = "11111111", Engine = 12, Undercarriage = 12, Wheel = 31 };
+            BaseCar bc1 = new Car() { Brake = 1, CarNumber = "11111111", Engine = 33, Undercarriage = 44, Wheel = 55, CarCase = 66, CreatedDate = DateTime.Now };
+            BaseCar bc2 = new Car() { Brake = 1, CarNumber = "11111111", Engine = 22, Undercarriage = 33, Wheel = 44, CarCase = 55, CreatedDate = DateTime.Now };
+            BaseCar bc3 = new Car() { Brake = 1, CarNumber = "11111111", Engine = 22, Undercarriage = 22, Wheel = 33, CarCase = 44, CreatedDate = DateTime.Now };
             _db.BaseCars.AddRange(new List<BaseCar>() {
-                bc1, bc1, bc1
+                bc1, bc2, bc3
             });
         }
-        private void DropViewVCalculateResult(EFDbContext _db)
+        private void DropViewVCalculateResult()
         {
             _db.Database.ExecuteSqlCommand(@"IF EXISTS (SELECT
                                                   1
@@ -62,11 +63,11 @@ namespace STO.Domain.Concrete
                                             END");
         }
 
-        private void CreateViewVCalculateResult(EFDbContext _db)
+        private void CreateViewVCalculateResult()
         {
             _db.Database.ExecuteSqlCommand(@"CREATE VIEW VCalculateResult
 AS
-SELECT
+SELECT TOP 100 PERCENT
   t.Id
  ,t.CarNumber
  ,t.Discriminator
@@ -80,12 +81,20 @@ SELECT
  ,10 * (100 - t.Brake) AS BrakeVal
  ,t.Undercarriage
  ,10 * (100 - t.Undercarriage) AS UndercarriageVal
+ ,t.CreatedDate AS CreatedDate
  ,t.Handrail
  ,10 * (100 - t.Handrail) AS HandrailVal
  ,t.Seat
  ,10 * (100 - t.Seat) AS SeatVal
  ,t.Hydraulics
  ,10 * (100 - t.Hydraulics) AS HydraulicsVal
+ ,t.SkinReplacement
+ ,t.WheelBalancing
+ ,CASE t.Discriminator
+    WHEN 'Bus' THEN t.SkinReplacement
+    WHEN 'Car' THEN t.WheelBalancing
+    ELSE NULL
+  END AS AddService
  ,(10 * (CASE t.Discriminator
     WHEN 'Car' THEN 500
     WHEN 'Truck' THEN 600
@@ -94,15 +103,10 @@ SELECT
   (t.CarCase + t.Wheel + t.Engine + t.Brake + t.Undercarriage + ISNULL(t.Handrail, 0) + ISNULL(t.Seat, 0) + ISNULL(t.Hydraulics, 0))))
   +
   CASE t.Discriminator
-    WHEN 'Bus' THEN t.SkinReplacement
-    WHEN 'Car' THEN t.WheelBalancing
+    WHEN 'Bus' THEN ISNULL(t.SkinReplacement, 0)
+    WHEN 'Car' THEN ISNULL(t.WheelBalancing, 0)
     ELSE 0
   END AS TotalPrice
- ,CASE t.Discriminator
-    WHEN 'Bus' THEN t.SkinReplacement
-    WHEN 'Car' THEN t.WheelBalancing
-    ELSE NULL
-  END AS AddService
  ,(T.CarCase + T.Wheel + T.Engine + T.Brake + T.Undercarriage + ISNULL(T.Handrail, 0) + ISNULL(t.Seat, 0) + ISNULL(t.Hydraulics, 0))
   /
   CASE T.Discriminator
@@ -111,7 +115,10 @@ SELECT
     ELSE 7
   END AS AvgState
 --,tc.Name AS TypeCar
-FROM [dbo].[BaseCars] t");
+FROM [dbo].[BaseCars] t
+ORDER BY t.CreatedDate DESC;
+
+");
 
         }
 

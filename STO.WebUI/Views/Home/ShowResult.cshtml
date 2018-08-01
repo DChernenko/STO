@@ -1,0 +1,30 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<STO.WebUI.Models.CarResultViewModel>
+@{
+    ViewBag.Title = "ShowResult";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">Название</div>
+        <div class="col-md-3">Состояние</div>
+        <div class="col-md-3">Цена ремонта</div>
+        <div class="col-md-3">Итог</div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-12">@Html.DisplayFor(modelItem => item.CarNumber)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">@Html.DisplayFor(modelItem => item.CreatedDate)</div>
+        </div>
+    }
+</div>
+
+
+    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+
+

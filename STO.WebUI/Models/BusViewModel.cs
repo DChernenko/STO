@@ -23,7 +23,7 @@
         [Display(Name = "SkinReplacement", ResourceType = typeof(Resources.View.DetailsRes))]
         public int? SkinReplacement { get; set; } = 300;
 
-        public Bus ToDBObject()
+        public new Bus ToDBObject()
         {
             Bus bus = Mapper.Map<BusViewModel,Bus>(this);
             return bus;

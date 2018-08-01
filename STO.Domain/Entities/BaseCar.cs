@@ -17,6 +17,9 @@
         public int Brake { get; set; }
         public int Undercarriage { get; set; }
 
-        public TypeCar typeCar { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime CreatedDate { get; set; }
+        public TypeCar TypeCar { get; set; }
+        
     }
 }

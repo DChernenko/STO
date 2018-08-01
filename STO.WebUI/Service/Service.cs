@@ -29,10 +29,11 @@ namespace STO.WebUI.Service
         {
             return _unitOfWork.Repository<E>()
                 .Query()
+                .OrderByDescending(o=>o.Id)
                 .Skip(skipt)
                 .Take(take)
-                .Select(s => (T)Activator.CreateInstance<T>().ToViewObject(s))
-                .ToList();
+                .ToList()
+                .Select(s => (T)Activator.CreateInstance<T>().ToViewObject(s));
         }
 
         public void Save(List<T> list)

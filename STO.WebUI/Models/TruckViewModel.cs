@@ -12,7 +12,7 @@
         [Display(Name = "Hydraulics", ResourceType = typeof(Resources.View.DetailsRes))]
         public int Hydraulics { get; set; }
 
-        public Truck ToDBObject()
+        public new Truck ToDBObject()
         {
             Truck truck = Mapper.Map<TruckViewModel, Truck>(this);
             return truck;

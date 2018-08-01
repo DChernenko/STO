@@ -47,7 +47,6 @@
         public int UndercarriageVal { get; set; }
 
         public int? AddService { get; set; }
-        //public int? WheelBalancing { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
@@ -61,8 +60,6 @@
         public int? Seat { get; set; }
         public int? SeatVal { get; set; }
 
-        //public int? SkinReplacement { get; set; }
-
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Hydraulics", ResourceType = typeof(Resources.View.DetailsRes))]
@@ -70,9 +67,10 @@
         public int? HydraulicsVal { get; set; }
 
 
+        public DateTime CreatedDate { get; set; }
         public int TotalPrice { get; set; }
-
         public int AvgState { get; set; }
+
 
         //public string TypeCar { get; set; }
 

@@ -12,7 +12,7 @@
         [Display(Name = "WheelBalancing", ResourceType = typeof(Resources.View.DetailsRes))]
         public int? WheelBalancing { get; set; } = 100;
 
-        public Car ToDBObject()
+        public new Car ToDBObject()
         {
             Car car = Mapper.Map<CarViewModel, Car>(this);
             return car;       

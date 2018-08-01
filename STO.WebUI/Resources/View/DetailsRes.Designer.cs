@@ -106,6 +106,15 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата добавления.
+        /// </summary>
+        public static string CreatedDate {
+            get {
+                return ResourceManager.GetString("CreatedDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Двигатель.
         /// </summary>
         public static string Engine {

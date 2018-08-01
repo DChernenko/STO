@@ -3,7 +3,8 @@
     using STO.Domain.Entities;
     using STO.WebUI.Service;
     using System;
-    using System.ComponentModel.DataAnnotations;    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public interface IModel { }
 
@@ -45,6 +46,11 @@
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Undercarriage", ResourceType = typeof(Resources.View.DetailsRes))]
         public int Undercarriage { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        [Display(Name = "CreatedDate", ResourceType = typeof(Resources.View.DetailsRes))]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
 
         public BaseCar ToDBObject()
         {

@@ -19,7 +19,8 @@
 
         [Column(TypeName = "datetime2")]
         public DateTime CreatedDate { get; set; }
-        public TypeCar TypeCar { get; set; }
-        
+
+        public TypeCar TypeCar { get; set; }        
+
     }
 }

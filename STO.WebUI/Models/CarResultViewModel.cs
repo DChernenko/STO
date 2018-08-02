@@ -66,16 +66,18 @@
         public int? Hydraulics { get; set; }
         public int? HydraulicsVal { get; set; }
 
-
+        [Display(Name = "CreatedDate", ResourceType = typeof(Resources.View.DetailsRes))]
         public DateTime CreatedDate { get; set; }
+
+        [Display(Name = "TotalPrice", ResourceType = typeof(Resources.View.DetailsRes))]
         public int TotalPrice { get; set; }
+
+        [Display(Name = "AvgState", ResourceType = typeof(Resources.View.DetailsRes))]
         public int AvgState { get; set; }
 
 
         //public string TypeCar { get; set; }
-
-
-
+        
         public CarResult ToDBObject()
         {
             CarResult carResult = Mapper.Map<CarResultViewModel, CarResult>(this);

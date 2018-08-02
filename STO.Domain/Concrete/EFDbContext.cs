@@ -2,6 +2,7 @@
 {
     using STO.Domain.Entities;
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class EFDbContext : DbContext
     {
@@ -32,6 +33,7 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {            
             modelBuilder.Configurations.Add(new VCalculateResultConfiguration());
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<CarResult>().HasKey(t => t.Id);
             //modelBuilder.Entity<CarResult>() Query<CarResult>().ToView("VCalculateResult");                       

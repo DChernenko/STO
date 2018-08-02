@@ -19,11 +19,10 @@
 }
 @*<h2>@Resources.Resource</h2>*@
 
-<h2>@STO.WebUI.Resources.View.DetailsRes.String1</h2>
-<h2>@STO.WebUI.Resources.View.DetailsRes.Culture</h2>
+<h2>@DetailsRes.Culture</h2>
 
 <h2>Краткая информация</h2>
-@AddRow("Номер автомобиля:", @Model.Car.Number)
+@*@AddRow("Номер автомобиля:", @Model.Car.Number)*@
 @AddRow("Тип автомобиля:", @Model.Car.TypeCar.Name)
 @AddRow("Дата:", @Model.Date)
 @AddRow("Состояние автомобиля:", @Model.AvgState)

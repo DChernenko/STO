@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PagedList;
 using STO.Domain.Concrete;
 using STO.Domain.DAL;
 using STO.Domain.Entities;
@@ -48,13 +49,17 @@ namespace STO.WebUI.Controllers
         }
         public ActionResult ShowResult(int? page)
         {
-            int pageSize = 3;
+            int pageSize = 2;
             int pageNumber = (page ?? 1);
             var result = new Service<CarResultViewModel, CarResult>(_unitOfWork);
 
-            var lists = result.GetLists(pageNumber, pageSize);
+            //var lists = result.GetLists(pageNumber, pageSize);
 
-            return View(lists);
+            //return View(lists.ToPagedList(pageNumber, pageSize));
+
+            //var lists = result.GetLists(pageNumber, pageSize);
+
+            return View(result.GetLists().ToPagedList(pageNumber, pageSize));
         }
 
         protected override void Dispose(bool disposing)

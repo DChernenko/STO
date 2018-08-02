@@ -4,6 +4,7 @@
     using STO.Domain.Interfaces;
     using System.Collections.Generic;
     using System.Linq;
+    using System;
 
     public class Service<T, E> : IService<T, E>
                                    where T : IViewModel<E>
@@ -14,6 +15,11 @@
         public Service(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
+        }
+
+        public T Get(Guid id)
+        {
+            return Mapper.Map<E,T>(_unitOfWork.Repository<E>().Get(id));
         }
 
         public IEnumerable<T> GetLists()

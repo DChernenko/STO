@@ -1,5 +1,6 @@
 ﻿using STO.Domain.Interfaces;
 using STO.WebUI.Models;
+using System;
 using System.Collections.Generic;
 
 namespace STO.WebUI.Service
@@ -12,5 +13,6 @@ namespace STO.WebUI.Service
         void Save(T item);
         IEnumerable<T> GetLists();
         IEnumerable<T> GetLists(int skipt, int take);
+        T Get(Guid id);
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Entities\Truck.cs" />
     <Compile Include="Entities\TypeCar.cs" />
     <Compile Include="Entities\TypeService.cs" />
+    <Compile Include="Helper\STOConst.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />

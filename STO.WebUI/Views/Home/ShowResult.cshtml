@@ -1,30 +1,116 @@
-﻿@using PagedList.Mvc;
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using STO.WebUI.Resources.View
 @model PagedList.IPagedList<STO.WebUI.Models.CarResultViewModel>
+
 @{
     ViewBag.Title = "ShowResult";
 }
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">Название</div>
-        <div class="col-md-3">Состояние</div>
-        <div class="col-md-3">Цена ремонта</div>
-        <div class="col-md-3">Итог</div>
-    </div>
+<h1>
+    @DetailsRes.CarList
+</h1>
+
+<div class="container-fluid">    
     @foreach (var item in Model)
     {
         <div class="row">
-            <div class="col-md-12">@Html.DisplayFor(modelItem => item.CarNumber)</div>
+            <div class="col-md-6">@Html.LabelFor(modelItem => item.CarNumber)</div>
+            <div class="col-md-6">@Html.DisplayFor(modelItem => item.CarNumber)</div>
         </div>
         <div class="row">
-            <div class="col-md-12">@Html.DisplayFor(modelItem => item.CreatedDate)</div>
+            <div class="col-md-6">@Html.LabelFor(modelItem => item.CreatedDate)</div>
+            <div class="col-md-6">@Html.DisplayFor(modelItem => item.CreatedDate)</div>
         </div>
+        <br />        
+
+        <div class="row p-2 bg-primary text-white text-center">
+            <div class="col-md-4">@DetailsRes.Name</div>
+            <div class="col-md-4">@DetailsRes.State</div>
+            <div class="col-md-4">@DetailsRes.Price</div>
+        </div>        
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(modelItem => item.CarCase)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.CarCase)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.CarCaseVal)</div>            
+        </div>
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(modelItem => item.Wheel)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Wheel)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.WheelVal)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(modelItem => item.Engine)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Engine)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.EngineVal)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(modelItem => item.Brake)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Brake)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.BrakeVal)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(modelItem => item.Undercarriage)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Undercarriage)</div>
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.UndercarriageVal)</div>
+        </div>
+        if (item.Handrail != null)
+        {
+            <div class="row">
+                <div class="col-md-4">@Html.LabelFor(modelItem => item.Handrail)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Handrail)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.HandrailVal)</div>
+            </div>
+        }
+        if (item.Seat != null)
+        {
+            <div class="row">
+                <div class="col-md-4">@Html.LabelFor(modelItem => item.Seat)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Seat)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.SeatVal)</div>
+            </div>
+        }
+        if (item.Hydraulics != null)
+        {
+            <div class="row">
+                <div class="col-md-4">@Html.LabelFor(modelItem => item.Hydraulics)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Hydraulics)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.HydraulicsVal)</div>
+            </div>
+        }
+        <div class="row"></div>
+        <div class="row"></div>
+        <br/>
+        <div class="row p-1 bg-primary text-white text-left">
+            <div class="col-md-12">Итог</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(modelItem => item.AvgState)</div>
+            <div class="col-md-4 text-center col-centered">@Html.DisplayFor(modelItem => item.AvgState)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">@String.Format(@DetailsRes.TotalPricePageResult, item.TotalPrice)</div>
+        </div>
+        <div class="row bg-inverse"></div>
+        <div class="row bg-inverse"></div>
+        <hr />
+        <br />
     }
+    <div class="row">
+        <div class="col-md-12 col-md-offset-5">
+            Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-centered text-center bg-light">
+            @Html.PagedListPager(Model, page => Url.Action("ShowResult", new { page }))
+        </div>
+    </div>
 </div>
 
 
-    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
 
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
 
 
 

@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCar" xml:space="preserve">
+    <value>Добавить автомобиль</value>
+  </data>
+  <data name="AvgState" xml:space="preserve">
+    <value>Общее состояние</value>
+  </data>
   <data name="Brake" xml:space="preserve">
     <value>Тормоза</value>
   </data>
   <data name="CarCase" xml:space="preserve">
     <value>Кузов</value>
+  </data>
+  <data name="CarList" xml:space="preserve">
+    <value>Список машин</value>
   </data>
   <data name="CarNumber" xml:space="preserve">
     <value>Номер автомобиля</value>
@@ -147,20 +156,26 @@
   <data name="Hydraulics" xml:space="preserve">
     <value>Гидравлика</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
   <data name="Seat" xml:space="preserve">
     <value>Сиденья</value>
   </data>
   <data name="SkinReplacement" xml:space="preserve">
     <value>Замена обшивки сидения</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>Ru2</value>
+  <data name="State" xml:space="preserve">
+    <value>Состояние</value>
   </data>
-  <data name="String2" xml:space="preserve">
-    <value>Ru1</value>
+  <data name="TotalPricePageResult" xml:space="preserve">
+    <value>К оплате всего {0} денег</value>
   </data>
   <data name="Undercarriage" xml:space="preserve">
-    <value>Хоодовая</value>
+    <value>Ходовая</value>
   </data>
   <data name="ValRang0100Fld" xml:space="preserve">
     <value>Значение должно бить в диапазоне от 0 до 100</value>

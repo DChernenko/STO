@@ -1,6 +1,7 @@
 ﻿namespace STO.WebUI.Controllers
 {
     using STO.Domain.Entities;
+    using STO.Domain.Helper;
     using STO.Domain.Interfaces;
     using STO.WebUI.Filters;
     using STO.WebUI.Models;
@@ -23,11 +24,13 @@
         {
             if (ModelState.IsValid)
             {
-                //car.TypeCar = new TypeCar() { Id = new Guid("9035ead9-7893-e811-97a8-00505697018a") };
+                car.TypeCar = new Service<TypeCarViewModel, TypeCar>(_unitOfWork).Get(STOConst.TypeCar.Car);
+                               
                 var service = new Service<CarViewModel, Car>(_unitOfWork);
                 service.Save(car);
             }
-            return View();
+
+            return RedirectToAction("ShowResult", "Home"); 
         }
     }
 }

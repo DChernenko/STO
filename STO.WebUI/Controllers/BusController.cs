@@ -27,7 +27,7 @@
             else {
                 Redirect(Request.UrlReferrer?.AbsolutePath);
             }
-            return View();
+            return RedirectToAction("ShowResult", "Home");
         }
     }
 }

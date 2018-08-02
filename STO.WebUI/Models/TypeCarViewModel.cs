@@ -4,13 +4,13 @@
     using STO.Domain.Entities;
     using STO.WebUI.Service;
     using System;
-    using System.Web.Mvc;
 
     public class TypeCarViewModel : IViewModel<TypeCar>, IModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string UrlForm { get; set; }
+                
 
         public TypeCar ToDBObject()
         {
@@ -19,7 +19,7 @@
 
         public IModel ToViewObject(TypeCar t)
         {
-            return Mapper.Map<TypeCar, TypeCarViewModel>(t);            
+            return Mapper.Map<TypeCar, TypeCarViewModel>(t);
         }
     }
 }

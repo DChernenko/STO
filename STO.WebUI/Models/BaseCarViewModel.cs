@@ -14,38 +14,38 @@
 
         //[Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]        
         //[Display(Name = "TypeCar", ResourceType = typeof(Resources.View.DetailsRes))]
-        public TypeCar TypeCar { get; set; }
+        public TypeCarViewModel TypeCar { get; set; }
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [StringLength(8, MinimumLength = 8, ErrorMessageResourceName = "ValStrLengthFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "CarNumber", ResourceType = typeof(Resources.View.DetailsRes))]
-        public string CarNumber { get; set; }
+        public string CarNumber { get; set; } = "1111111";
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "CarCase", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int CarCase { get; set; }
+        public int CarCase { get; set; } = 12;
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Wheel", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Wheel { get; set; }
+        public int Wheel { get; set; } = 12;
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Engine", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Engine { get; set; }
+        public int Engine { get; set; } = 12;
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Brake", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Brake { get; set; }
+        public int Brake { get; set; } = 12;
 
 
         [Required(ErrorMessageResourceName = "ValRequiredFld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Range(0, 100, ErrorMessageResourceName = "ValRang0100Fld", ErrorMessageResourceType = typeof(Resources.View.DetailsRes))]
         [Display(Name = "Undercarriage", ResourceType = typeof(Resources.View.DetailsRes))]
-        public int Undercarriage { get; set; }
+        public int Undercarriage { get; set; } = 12;
 
         [HiddenInput(DisplayValue = false)]
         [Display(Name = "CreatedDate", ResourceType = typeof(Resources.View.DetailsRes))]

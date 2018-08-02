@@ -61,6 +61,24 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить автомобиль.
+        /// </summary>
+        public static string AddCar {
+            get {
+                return ResourceManager.GetString("AddCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общее состояние.
+        /// </summary>
+        public static string AvgState {
+            get {
+                return ResourceManager.GetString("AvgState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тормоза.
         /// </summary>
         public static string Brake {
@@ -75,6 +93,15 @@ namespace STO.WebUI.Resources.View {
         public static string CarCase {
             get {
                 return ResourceManager.GetString("CarCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Список машин.
+        /// </summary>
+        public static string CarList {
+            get {
+                return ResourceManager.GetString("CarList", resourceCulture);
             }
         }
         
@@ -151,6 +178,24 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Название.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сиденья.
         /// </summary>
         public static string Seat {
@@ -169,25 +214,25 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ru2.
+        ///   Looks up a localized string similar to Состояние.
         /// </summary>
-        public static string String1 {
+        public static string State {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("State", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ru1.
+        ///   Looks up a localized string similar to К оплате всего {0} денег.
         /// </summary>
-        public static string String2 {
+        public static string TotalPricePageResult {
             get {
-                return ResourceManager.GetString("String2", resourceCulture);
+                return ResourceManager.GetString("TotalPricePageResult", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Хоодовая.
+        ///   Looks up a localized string similar to Ходовая.
         /// </summary>
         public static string Undercarriage {
             get {

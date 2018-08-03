@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
-    //[Table("BaseCar")]
     public class Bus: BaseCar
     {
         public int Handrail { get; set; }

@@ -9,7 +9,6 @@
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public Guid Id { get; set; }
         public string CarNumber { get; set; }
         public int CarCase { get; set; }
@@ -20,9 +19,7 @@
 
         [Column(TypeName = "datetime2")]
         public DateTime CreatedDate { get; set; }
-
-        //[ForeignKey("Id")]
-        //[Required]
+        
         public Guid TypeCarId { get; set; }
         public virtual TypeCar TypeCar { get; set; }
 

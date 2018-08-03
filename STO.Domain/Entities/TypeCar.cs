@@ -7,8 +7,7 @@
 
     public class TypeCar : IEntity
     {
-        [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]      
+        [Key]        
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string UrlForm { get; set; }

@@ -144,6 +144,9 @@
   <data name="CreatedDate" xml:space="preserve">
     <value>Дата добавления</value>
   </data>
+  <data name="DetailStateCar" xml:space="preserve">
+    <value>Состояние автомобиля в разрезе</value>
+  </data>
   <data name="Engine" xml:space="preserve">
     <value>Двигатель</value>
   </data>

@@ -8,28 +8,8 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Entities
 {
-//[Table("BaseCar")]
     public class Car: BaseCar
     {
         public int? WheelBalancing { get; set; }
-
-        /*
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Number { get; set; }
-
-        public int? TypeCarId { get; set; }
-        public virtual TypeCar TypeCar { get; set; }
-
-        public virtual ICollection<CalculateCost> CalculateCostes { get; set; }
-        public virtual ICollection<TotalPrice> TotalPrices { get; set; }
-
-        public Car()
-        {
-            CalculateCostes = new List<CalculateCost>();
-            TotalPrices = new List<TotalPrice>();
-        }
-        */
     }
 }

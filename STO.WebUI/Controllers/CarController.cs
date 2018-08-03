@@ -29,7 +29,10 @@
                 var service = new Service<CarViewModel, Car>(_unitOfWork);
                 service.Save(car);
             }
+            else
+            {
 
+            }
             return RedirectToAction("ShowResult", "Home"); 
         }
     }

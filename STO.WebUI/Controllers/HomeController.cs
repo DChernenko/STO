@@ -15,8 +15,6 @@ namespace STO.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        EFDbContext db = new EFDbContext("EFDbContext");
-
         private readonly IUnitOfWork _unitOfWork;
 
         public HomeController(IUnitOfWork unitOfWork)
@@ -41,31 +39,15 @@ namespace STO.WebUI.Controllers
 
         public ActionResult Index()
         {
-            var service = new Service<TypeCarViewModel, TypeCar>(_unitOfWork);
-            //var service = new Service<CarViewModel, Car>(_unitOfWork);
-            //var lists = service.GetLists();
-            //var baseCars = new Service<BaseCarViewModel, BaseCar>(_unitOfWork);
+            var service = new Service<TypeCarViewModel, TypeCar>(_unitOfWork);            
             return View(service.GetLists());
         }
         public ActionResult ShowResult(int? page)
         {
-            int pageSize = 2;
+            int pageSize = 2;// винести в файли налаштування
             int pageNumber = (page ?? 1);
             var result = new Service<CarResultViewModel, CarResult>(_unitOfWork);
-
-            //var lists = result.GetLists(pageNumber, pageSize);
-
-            //return View(lists.ToPagedList(pageNumber, pageSize));
-
-            //var lists = result.GetLists(pageNumber, pageSize);
-
-            return View(result.GetLists().ToPagedList(pageNumber, pageSize));
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
+            return View(result.GetLists().OrderByDescending(c=>c.CreatedDate).ToPagedList(pageNumber, pageSize));
+        }       
     }
 }

@@ -20,11 +20,13 @@
         {
             if (ModelState.IsValid)
             {
-                truck.TypeCar = new Service<TypeCarViewModel, TypeCar>(_unitOfWork).Get(STOConst.TypeCar.Truck);
-                
-                //truck.TypeCar = new TypeCar() { Id = new Guid("9235ead9-7893-e811-97a8-00505697018a") };
+                truck.TypeCar = new Service<TypeCarViewModel, TypeCar>(_unitOfWork).Get(STOConst.TypeCar.Truck);                
                 var service = new Service<TruckViewModel, Truck>(_unitOfWork);
                 service.Save(truck);
+            }
+            else
+            {
+
             }
             return RedirectToAction("ShowResult", "Home");
         }

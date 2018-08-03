@@ -10,14 +10,14 @@
         {
 
             Mapper.CreateMap<Car, CarViewModel>()
-                .ForMember(c => c.Extra, x => x.MapFrom(s => s.WheelBalancing != null));
-            //.ForMember(c => c.TypeCar, x => x.MapFrom(s => s.TypeCar.Id))
-            //.ForMember(c => c.TypeCar, opt => opt.Ignore());
+                .ForMember(c => c.Extra, x => x.MapFrom(s => s.WheelBalancing != null))
+                .ForMember(c => c.TypeCar, x => x.MapFrom(s => s.TypeCar))
+                .ForMember(c => c.TypeCar, opt => opt.Ignore());
 
             Mapper.CreateMap<CarViewModel, Car>()
-                .ForMember(c => c.WheelBalancing, x => x.MapFrom(s => s.Extra ? s.WheelBalancing : 0));
-                //.ForMember(c => c.TypeCar,` x => x.MapFrom(s => s.TypeCar.Id))
-                //.ForMember(c => c.TypeCar, opt => opt.Ignore()); ;
+                .ForMember(c => c.WheelBalancing, x => x.MapFrom(s => s.Extra ? s.WheelBalancing : 0))
+                .ForMember(c => c.TypeCarId, x => x.MapFrom(s => s.TypeCar.Id))
+                .ForMember(c => c.TypeCar, opt => opt.Ignore());
         }
     }
 
@@ -25,13 +25,18 @@
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<BusViewModel, Bus>()
-                .ForMember(c => c.SkinReplacement, x => x.MapFrom(s => s.Extra ? s.SkinReplacement : 0))
-                ;
+
 
             Mapper.CreateMap<Bus, BusViewModel>()
                .ForMember(c => c.Extra, x => x.MapFrom(s => s.SkinReplacement != null))
-               ;
+               .ForMember(c => c.TypeCar, x => x.MapFrom(s => s.TypeCar))
+                .ForMember(c => c.TypeCar, opt => opt.Ignore());
+
+            Mapper.CreateMap<BusViewModel, Bus>()
+               .ForMember(c => c.SkinReplacement, x => x.MapFrom(s => s.Extra ? s.SkinReplacement : 0))
+               .ForMember(c => c.TypeCarId, x => x.MapFrom(s => s.TypeCar.Id))
+                .ForMember(c => c.TypeCar, opt => opt.Ignore());
+
         }
     }
 
@@ -39,9 +44,14 @@
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<TruckViewModel, Truck>();
+            Mapper.CreateMap<Truck, TruckViewModel>()
+                .ForMember(c => c.TypeCar, x => x.MapFrom(s => s.TypeCar))
+                .ForMember(c => c.TypeCar, opt => opt.Ignore());
 
-            Mapper.CreateMap<Truck, TruckViewModel>();
+            Mapper.CreateMap<TruckViewModel, Truck>()
+                .ForMember(c => c.TypeCarId, x => x.MapFrom(s => s.TypeCar.Id))
+                .ForMember(c => c.TypeCar, opt => opt.Ignore());
+
         }
     }
 

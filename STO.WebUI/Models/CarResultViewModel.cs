@@ -76,8 +76,11 @@
         public int AvgState { get; set; }
 
 
-        //public string TypeCar { get; set; }
-        
+        public Guid TypeCarId { get; set; }
+
+        [Display(Name = "CarType", ResourceType = typeof(Resources.View.DetailsRes))]
+        public string TypeCarName { get; set; }
+
         public CarResult ToDBObject()
         {
             CarResult carResult = Mapper.Map<CarResultViewModel, CarResult>(this);

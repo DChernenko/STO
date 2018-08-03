@@ -142,6 +142,15 @@ namespace STO.WebUI.Resources.View {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Состояние автомобиля в разрезе.
+        /// </summary>
+        public static string DetailStateCar {
+            get {
+                return ResourceManager.GetString("DetailStateCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Двигатель.
         /// </summary>
         public static string Engine {

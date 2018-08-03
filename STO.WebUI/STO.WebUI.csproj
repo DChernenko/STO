@@ -195,20 +195,13 @@
     <Compile Include="Infrastrucure\NinjectResolver.cs" />
     <Compile Include="MappingSettings\AutoMappeProfile.cs" />
     <Compile Include="MappingSettings\MapInit.cs" />
-    <Compile Include="Models\AddDataAdapter.cs" />
     <Compile Include="Models\BaseCarViewModel.cs" />
     <Compile Include="Models\BusViewModel.cs" />
-    <Compile Include="Models\CarInfo.cs" />
     <Compile Include="Models\CarResultViewModel.cs" />
     <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Models\TruckViewModel.cs" />
     <Compile Include="Models\TypeCarViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\View\DetailsRes.en-US.Designer.cs">
-      <DependentUpon>DetailsRes.en-US.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Resources\View\DetailsRes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -332,10 +325,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\View\DetailsRes.en-US.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DetailsRes.en-US.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\View\DetailsRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DetailsRes.Designer.cs</LastGenOutput>

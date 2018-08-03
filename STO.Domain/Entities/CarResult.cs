@@ -39,6 +39,7 @@
         public int TotalPrice { get; set; }
         public int AvgState { get; set; }
 
-        //public string TypeCar { get; set; }
+        public string TypeCarName { get; set; }
+        public Guid TypeCarId { get; set; }
     }
 }

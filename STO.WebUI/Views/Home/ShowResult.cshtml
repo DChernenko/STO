@@ -1,6 +1,7 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 @using STO.WebUI.Resources.View
+@using STO.Domain.Helper;
 @model PagedList.IPagedList<STO.WebUI.Models.CarResultViewModel>
 
 @{
@@ -10,7 +11,7 @@
     @DetailsRes.CarList
 </h1>
 
-<div class="container-fluid">    
+<div class="container-fluid">
     @foreach (var item in Model)
     {
         <div class="row">
@@ -21,17 +22,26 @@
             <div class="col-md-6">@Html.LabelFor(modelItem => item.CreatedDate)</div>
             <div class="col-md-6">@Html.DisplayFor(modelItem => item.CreatedDate)</div>
         </div>
-        <br />        
+        <div class="row">
+            <div class="col-md-6">@Html.LabelFor(modelItem => item.TypeCarName)</div>
+            <div class="col-md-6">@Html.DisplayFor(modelItem => item.TypeCarName)</div>
+        </div>
+        <div class="row">
+            <h5>
+                @DetailsRes.DetailStateCar
+            </h5>
+        </div>
+
 
         <div class="row p-2 bg-primary text-white text-center">
             <div class="col-md-4">@DetailsRes.Name</div>
             <div class="col-md-4">@DetailsRes.State</div>
             <div class="col-md-4">@DetailsRes.Price</div>
-        </div>        
+        </div>
         <div class="row">
             <div class="col-md-4">@Html.LabelFor(modelItem => item.CarCase)</div>
             <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.CarCase)</div>
-            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.CarCaseVal)</div>            
+            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.CarCaseVal)</div>
         </div>
         <div class="row">
             <div class="col-md-4">@Html.LabelFor(modelItem => item.Wheel)</div>
@@ -48,11 +58,11 @@
             <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Brake)</div>
             <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.BrakeVal)</div>
         </div>
-        <div class="row">
-            <div class="col-md-4">@Html.LabelFor(modelItem => item.Undercarriage)</div>
-            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Undercarriage)</div>
-            <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.UndercarriageVal)</div>
-        </div>
+            <div class="row">
+                <div class="col-md-4">@Html.LabelFor(modelItem => item.Undercarriage)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.Undercarriage)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.UndercarriageVal)</div>
+            </div>
         if (item.Handrail != null)
         {
             <div class="row">
@@ -77,9 +87,19 @@
                 <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.HydraulicsVal)</div>
             </div>
         }
+        if (item.AddService != null && item.AddService != 0)
+        {
+            <h5>@DetailsRes.Extra</h5>
+            <div class="row">
+                <div class="col-md-8 float-right">@(item.TypeCarId == STOConst.TypeCar.Car ? DetailsRes.WheelBalancing : DetailsRes.SkinReplacement)</div>
+                <div class="col-md-4 text-center">@Html.DisplayFor(modelItem => item.AddService)</div>
+            </div>
+
+        }
+
         <div class="row"></div>
         <div class="row"></div>
-        <br/>
+        <br />
         <div class="row p-1 bg-primary text-white text-left">
             <div class="col-md-12">Итог</div>
         </div>
@@ -88,13 +108,13 @@
             <div class="col-md-4">@Html.LabelFor(modelItem => item.AvgState)</div>
             <div class="col-md-4 text-center col-centered">@Html.DisplayFor(modelItem => item.AvgState)</div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-right">@String.Format(@DetailsRes.TotalPricePageResult, item.TotalPrice)</div>
-        </div>
-        <div class="row bg-inverse"></div>
-        <div class="row bg-inverse"></div>
-        <hr />
-        <br />
+            <div class="row">
+                <div class="col-md-12 text-right">@String.Format(@DetailsRes.TotalPricePageResult, item.TotalPrice)</div>
+            </div>
+            <div class="row bg-inverse"></div>
+            <div class="row bg-inverse"></div>
+            <hr class="border-dark" />
+            <br />
     }
     <div class="row">
         <div class="col-md-12 col-md-offset-5">
@@ -107,7 +127,6 @@
         </div>
     </div>
 </div>
-
 
 
 

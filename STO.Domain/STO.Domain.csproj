@@ -54,14 +54,10 @@
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Entities\BaseCar.cs" />
     <Compile Include="Entities\Bus.cs" />
-    <Compile Include="Entities\CalculateCost.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\CarResult.cs" />
-    <Compile Include="Entities\Service.cs" />
-    <Compile Include="Entities\TotalPrice.cs" />
     <Compile Include="Entities\Truck.cs" />
     <Compile Include="Entities\TypeCar.cs" />
-    <Compile Include="Entities\TypeService.cs" />
     <Compile Include="Helper\STOConst.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

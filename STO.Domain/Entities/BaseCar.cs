@@ -21,8 +21,8 @@
         [Column(TypeName = "datetime2")]
         public DateTime CreatedDate { get; set; }
 
-        [ForeignKey("Id")]
-        [Required]
+        //[ForeignKey("Id")]
+        //[Required]
         public Guid TypeCarId { get; set; }
         public virtual TypeCar TypeCar { get; set; }
 

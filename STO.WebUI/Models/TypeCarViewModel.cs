@@ -11,6 +11,7 @@
         public string Name { get; set; }
         public string UrlForm { get; set; }
                 
+        public BaseCarViewModel BaseCar { get; set; }
 
         public TypeCar ToDBObject()
         {

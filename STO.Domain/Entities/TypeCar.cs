@@ -8,12 +8,13 @@
     public class TypeCar : IEntity
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]      
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string UrlForm { get; set; }
 
-        //public BaseCar BaseCar { get; set; }
+
+        public virtual BaseCar BaseCar { get; set; }
 
         //public virtual ICollection<TypeService> TypeServices { get; set; }
         //public TypeCar()

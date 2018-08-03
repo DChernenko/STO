@@ -31,7 +31,9 @@
             Database.SetInitializer<EFDbContext>(new ContextInit());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {            
+        {
+            
+
             modelBuilder.Configurations.Add(new VCalculateResultConfiguration());
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);

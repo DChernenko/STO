@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STO.Domain.Concrete
 {
-    public class ContextInit : DropCreateDatabaseIfModelChanges<EFDbContext> //DropCreateDatabaseIfModelChanges<EFDbContext> //DropCreateDatabaseAlways<EFDbContext>
+    public class ContextInit : DropCreateDatabaseAlways<EFDbContext> //DropCreateDatabaseIfModelChanges<EFDbContext> //DropCreateDatabaseAlways<EFDbContext>
     {
         private EFDbContext _db;
         protected override void Seed(EFDbContext db)
@@ -16,7 +16,7 @@ namespace STO.Domain.Concrete
             _db = db;
             // test data for list cars
             AddTypeCar();
-            AddCar();
+            //AddCar();
             DropViewVCalculateResult();
             CreateViewVCalculateResult();
             //AddService(_db);
